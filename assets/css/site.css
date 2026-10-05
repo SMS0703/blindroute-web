@@ -310,11 +310,16 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 /* ejemplo de funcionamiento en perspectiva */
 .rec3d{margin-top:var(--s5);display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5)}
 .rec3d>*{min-width:0}
-.vista{position:relative;height:clamp(340px,92vw,520px);display:grid;place-items:center;perspective:1100px}
-.mundo{--k:.58;position:relative;width:400px;height:400px;transform-style:preserve-3d;transform:scale(var(--k)) rotateX(50deg) rotateZ(-40deg)}
-@media (max-width:359px){.mundo{--k:.5}}
-@media (min-width:560px){.mundo{--k:.8}}
-@media (min-width:900px){.mundo{--k:1}}
+/* --k es la escala de la escena. El dibujo proyectado mide unos 584×434 a escala 1 y queda corrido
+   respecto del centro de la caja; translate lo recentra. La perspectiva también escala con --k:
+   así el dibujo proyectado crece de forma uniforme y el centrado vale para cualquier ancho. */
+.vista{--k:.5;--dx:-4px;--dy:-10px;position:relative;height:calc(var(--k) * 450px + 24px)}
+@media (max-width:359px){.vista{--k:.44}}
+@media (min-width:390px){.vista{--k:.55}}
+@media (min-width:412px){.vista{--k:.58}}
+@media (min-width:560px){.vista{--k:.8}}
+@media (min-width:900px){.vista{--k:.9}}
+.mundo{position:absolute;width:400px;height:400px;margin:-200px 0 0 -200px;transform-style:preserve-3d;left:calc(50% + var(--k) * var(--dx));top:calc(50% + var(--k) * var(--dy));transform:perspective(calc(var(--k) * 2200px)) scale(var(--k)) rotateX(50deg) rotateZ(-40deg)}
 .piso{position:absolute;inset:0;border-radius:14px;background-color:var(--card);border:1px solid var(--line);
   background-image:radial-gradient(circle at 50% 58%,rgba(59,130,246,.16),rgba(59,130,246,0) 66%),linear-gradient(rgba(42,49,59,.55) 1px,transparent 1px),linear-gradient(90deg,rgba(42,49,59,.55) 1px,transparent 1px);background-size:100% 100%,40px 40px,40px 40px;
   box-shadow:0 0 0 1px rgba(255,255,255,.02),30px 40px 80px rgba(0,0,0,.5)}

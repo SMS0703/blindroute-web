@@ -106,7 +106,7 @@ END:VCARD
 
 ## Escena 3D de "Llegar a la terminal 4" (`.rec3d`)
 
-- Es un piso de 400×400 inclinado con `rotateX(50deg) rotateZ(-40deg)` dentro de `.vista` (`perspective:1100px`). Los bloques (`.caja3`) usan `--x --y --w --d --h` y tres caras con degradé más una sombra sobre el piso (`::before`). Para más volumen se suben los `--h` en `index.html`.
+- Es un piso de 400×400 (`.mundo`) inclinado con `perspective() scale(--k) rotateX(50deg) rotateZ(-40deg)`. La perspectiva va dentro del propio `transform` y escala con `--k`, así el dibujo crece parejo en cualquier ancho. `.mundo` está centrado de forma absoluta en `.vista` (no con grid: la caja de 400 px no entra en celular y la grilla la pegaba arriba a la izquierda). `--k` cambia por ancho de pantalla y `--dx`/`--dy` corrigen unos píxeles el centrado. Si se cambia la escala o la inclinación, volver a medir que el dibujo quede centrado en 320, 390, 768 y 1440 px. Los bloques (`.caja3`) usan `--x --y --w --d --h` y tres caras con degradé más una sombra sobre el piso (`::before`). Para más volumen se suben los `--h` en `index.html`.
 - La secuencia la maneja `assets/js/site.js` (`aplicar(t)`). La persona se mueve con `transform: translate3d`, no con `offset-path`. La ruta es de dos tramos rectos: si se cambia el recorrido, hay que cambiar `TRAMO1`, `LARGO` y las coordenadas del `<path>` a la vez.
 - Mientras camina, `.rec3d.camina` activa un paso de 0.48 s (`@keyframes paso`). Cuando la escena no está en pantalla, pierde la clase `en-vista` y sus animaciones infinitas se pausan.
 - Con `prefers-reduced-motion: reduce` queda el estado final, quieto, y los textos de las cuatro fases siguen visibles.
