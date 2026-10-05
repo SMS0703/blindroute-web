@@ -98,6 +98,14 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 .eslogan{text-wrap:balance}
 .eslogan span{color:var(--ok)}
 .hero .lead{margin-top:var(--s4);max-width:34ch}
+/* celular: el campo de ondas es un bloque arriba y el texto va debajo, en el flujo normal.
+   Antes iba posicionado al 33 % del alto del inicio y, en pantallas bajas, el texto se le montaba encima. */
+@media (max-width:899px){
+  .hero{min-height:auto;justify-content:flex-start;padding-top:72px}
+  .campo-wrap{position:relative;inset:auto;flex:none;height:clamp(230px,40svh,360px);margin:0 calc(var(--pad) * -1) var(--s4)}
+  .campo{top:50%;width:max(150vw,700px)}
+  .subtitulo{top:auto;bottom:var(--s2)}
+}
 .btns{display:flex;flex-direction:column;gap:var(--s3);margin-top:var(--s6)}
 @media (min-width:560px){.btns{flex-direction:row}}
 @media (min-width:900px){
