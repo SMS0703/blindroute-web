@@ -1,0 +1,22 @@
+# Salida de las herramientas de verificación (Playwright MCP)
+.playwright-mcp/
+
+# Dependencias (el sitio no usa ninguna; por si se suma alguna herramienta)
+node_modules/
+
+# Configuración local de la CLI de Vercel
+.vercel/
+
+# Copias de respaldo de versiones anteriores del sitio (no son el sitio vigente)
+_v1/
+_mia/
+_agente/
+
+# Temporales, registros y archivos del sistema o del editor
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

@@ -1,0 +1,176 @@
+{
+  "source": "https://linear.app",
+  "tokens": {
+    "spacing": {
+      "scale": [
+        2,
+        4,
+        6,
+        8,
+        12,
+        16,
+        24,
+        28,
+        30,
+        40
+      ],
+      "base_unit": 8
+    },
+    "typography": {
+      "families": [
+        "Inter Variable",
+        "Berkeley Mono"
+      ],
+      "scale": [
+        {
+          "role": "h1 (medido a 390px)",
+          "size": "38px",
+          "weight": "510",
+          "family": "Inter Variable",
+          "letter_spacing": "-0.836px",
+          "line_height": "41.8px"
+        },
+        {
+          "role": "h2",
+          "size": "24px",
+          "weight": "510",
+          "family": "Inter Variable",
+          "letter_spacing": "-0.288px"
+        },
+        {
+          "role": "h3",
+          "size": "20px",
+          "weight": "590",
+          "family": "Inter Variable",
+          "letter_spacing": "-0.24px"
+        },
+        {
+          "role": "body",
+          "size": "15px",
+          "weight": "400",
+          "family": "Inter Variable",
+          "line_height": "24px"
+        },
+        {
+          "role": "ui/secundario",
+          "size": "12-13px",
+          "weight": "400-510",
+          "family": "Inter Variable"
+        },
+        {
+          "role": "etiqueta FIG (~approx)",
+          "size": "~11px",
+          "weight": "400",
+          "family": "Berkeley Mono"
+        }
+      ]
+    },
+    "colors": [
+      {
+        "role": "background",
+        "value": "#08090A"
+      },
+      {
+        "role": "surface",
+        "value": "#0F1011"
+      },
+      {
+        "role": "surface-2",
+        "value": "#161718"
+      },
+      {
+        "role": "text-primary",
+        "value": "#F7F8F8"
+      },
+      {
+        "role": "text-body",
+        "value": "#D0D6E0"
+      },
+      {
+        "role": "text-secondary",
+        "value": "#8A8F98"
+      },
+      {
+        "role": "text-tertiary",
+        "value": "#62666D"
+      }
+    ],
+    "radius": [
+      "4px",
+      "6px",
+      "8px",
+      "12px",
+      "16px",
+      "9999px"
+    ],
+    "shadows": [
+      "inset 0 0 0 1px rgba(255,255,255,0.05)",
+      "0 0 0 1px rgba(0,0,0,0.2)",
+      "0 4px 4px -1px rgba(0,0,0,0.06), 0 1px 1px 0 rgba(0,0,0,0.12)",
+      "0 2px 32px 0 rgba(0,0,0,0.25)"
+    ],
+    "image_ratios": [
+      {
+        "usage": "feature (a 390px)",
+        "ratio": "1.25:1"
+      },
+      {
+        "usage": "avatar/logo",
+        "ratio": "1:1"
+      }
+    ],
+    "grid": {
+      "max_width": "~1290px (contenido a 1440)",
+      "columns": 3,
+      "gutter": "8px (grid interno medido)"
+    }
+  },
+  "taste": [
+    {
+      "name": "Jerarquía sin color de marca",
+      "trigger": "Cuando una página casi negra necesita ordenar títulos, párrafos y metadatos",
+      "decision": "Eligió cuatro grises tintados hacia el azul (#F7F8F8, #D0D6E0, #8A8F98, #62666D) sobre #08090A, en lugar de usar un color de acento en la interfaz",
+      "reason": "Quien lee distingue qué importa por brillo y no por tono, así que nada compite con el producto mostrado",
+      "evidence": [
+        "accentCandidates del extractor: solo grises y blanco",
+        "#08090A cubre 63 % del área con fondo",
+        "#8A8F98 aparece en 69 nodos de texto"
+      ],
+      "type": "restraint"
+    },
+    {
+      "name": "Estructura con filetes de 1px",
+      "trigger": "Cuando hay que separar columnas y tarjetas sin que la página pese",
+      "decision": "Usó anillos de 1px (inset rgba(255,255,255,.05)) y divisores verticales finos en lugar de cajas rellenas o sombras grandes",
+      "reason": "Los bordes casi invisibles ordenan la lectura sin crear peso visual en el fondo oscuro",
+      "evidence": [
+        "box-shadow inset 0 0 0 1px rgba(255,255,255,0.05) x4",
+        "columnas FIG 0.1/0.2/0.3 separadas por líneas verticales de 1px"
+      ],
+      "type": "craft"
+    },
+    {
+      "name": "Producto explicado con dibujo técnico",
+      "trigger": "Cuando un concepto abstracto (agentes, velocidad) no tiene imagen propia",
+      "decision": "Dibujó cubos y capas isométricas en línea fina con etiquetas FIG 0.x en monoespaciada, en lugar de capturas de pantalla o fotos",
+      "reason": "El diagrama se lee como material de ingeniería y deja imaginar el sistema sin mostrar interfaz",
+      "evidence": [
+        "etiquetas FIG 0.1, 0.2, 0.3 en Berkeley Mono",
+        "ilustraciones de trazo único sobre #08090A"
+      ],
+      "type": "system"
+    },
+    {
+      "name": "Movimiento corto con entrada desenfocada",
+      "trigger": "Cuando los controles se usan muchas veces y la portada se ve una sola",
+      "decision": "Dejó hover y foco en 0.1-0.16s con cubic-bezier(.25,.46,.45,.94) y reservó la entrada lenta para el titular, que llegó desenfocado en la captura a 4s",
+      "reason": "Lo que se repite no debe hacer esperar; lo que se ve una vez puede tomarse tiempo",
+      "evidence": [
+        "transiciones 0.1s y 0.16s en el extractor",
+        "focusVisible: true, reducedMotion: true",
+        "captura de portada con titular desenfocado"
+      ],
+      "type": "craft"
+    }
+  ]
+}

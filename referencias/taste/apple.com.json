@@ -1,0 +1,121 @@
+{
+  "source": "https://www.apple.com/accessibility/",
+  "tokens": {
+    "spacing": {
+      "scale": [
+        8,
+        16,
+        24,
+        32
+      ],
+      "base_unit": 8
+    },
+    "typography": {
+      "families": [
+        "SF Pro Display",
+        "SF Pro Text"
+      ],
+      "scale": [
+        {
+          "role": "título de sección (nav local)",
+          "size": "34px",
+          "weight": "600",
+          "family": "SF Pro Display",
+          "letter_spacing": "-0.374px",
+          "line_height": "50px"
+        },
+        {
+          "role": "título de tarjeta (~approx)",
+          "size": "~28px",
+          "weight": "600",
+          "family": "SF Pro Display"
+        },
+        {
+          "role": "etiqueta de tarjeta (~approx)",
+          "size": "~17px",
+          "weight": "600",
+          "family": "SF Pro Text"
+        }
+      ]
+    },
+    "colors": [
+      {
+        "role": "background (inicio)",
+        "value": "#000000"
+      },
+      {
+        "role": "background (cuerpo)",
+        "value": "#FFFFFF"
+      },
+      {
+        "role": "tarjeta neutra (~approx)",
+        "value": "#F5F5F7"
+      },
+      {
+        "role": "tarjeta celeste (~approx)",
+        "value": "#C7EEFF"
+      },
+      {
+        "role": "tarjeta marrón (~approx)",
+        "value": "#6B3B2A"
+      },
+      {
+        "role": "boton + (~approx)",
+        "value": "#1D1D1F"
+      }
+    ],
+    "radius": [
+      "~28px (tarjeta, approx)",
+      "999px (botón +)"
+    ],
+    "shadows": [
+      "ninguna perceptible en tarjetas"
+    ],
+    "image_ratios": [
+      {
+        "usage": "tarjeta",
+        "ratio": "~0.52:1 (alta, approx)"
+      }
+    ],
+    "grid": {
+      "max_width": "~1440px a sangre con carrusel",
+      "columns": "3.3 tarjetas visibles",
+      "gutter": "~28px (approx)"
+    }
+  },
+  "taste": [
+    {
+      "name": "Una situación humana por tarjeta",
+      "trigger": "Cuando hay que explicar funciones para personas ciegas, sordas o con baja audición sin hablar de especificaciones",
+      "decision": "Cada tarjeta lleva una ilustración plana de una persona usando la función y una sola frase en lenguaje llano (\"Hear detailed descriptions of what's in view, just by asking.\"), en lugar de listar características",
+      "reason": "Quien llega entiende para qué sirve antes de entender cómo funciona",
+      "evidence": [
+        "tarjetas VoiceOver, Generated Subtitles, AirPods Pro 3 y Personal Voice en la captura",
+        "título de ~28px peso 600 y un renglón de apoyo de ~17px"
+      ],
+      "type": "system"
+    },
+    {
+      "name": "Un color por función",
+      "trigger": "Cuando hay muchas funciones y no se quiere un ícono por cada una",
+      "decision": "Pintó cada tarjeta con un fondo propio (gris claro, celeste, marrón) en lugar de unificar el color",
+      "reason": "El color funciona como pista de memoria: la persona recuerda 'la celeste' antes que el nombre",
+      "evidence": [
+        "fondos distintos en 3 tarjetas contiguas",
+        "texto oscuro sobre claro y blanco sobre marrón"
+      ],
+      "type": "craft"
+    },
+    {
+      "name": "Detalle bajo demanda",
+      "trigger": "Cuando la página tiene decenas de funciones y poco espacio",
+      "decision": "Mostró solo título y dibujo, y escondió el detalle detrás de un botón + circular negro, en lugar de desplegar todo el texto",
+      "reason": "Cada tarjeta se entiende en 3 segundos y quien quiere más lo pide",
+      "evidence": [
+        "botón + de ~36px en la esquina inferior derecha de cada tarjeta",
+        "carrusel horizontal con flechas y siguiente tarjeta cortada en el borde"
+      ],
+      "type": "restraint"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# Todo lo que está en el repositorio pero no tiene que publicarse en el sitio.
+
+# Documentación interna (CLAUDE.md, prompt-maestro-web.md, setup-claude-code.md)
+*.md
+
+# Material de referencia (presentación, anteproyecto, análisis de diseño)
+referencias/
+
+# Capturas de verificación y salida de Playwright
+capturas/
+.playwright-mcp/
+
+# Copias de respaldo y páginas de prueba
+_v1/
+_mia/
+_agente/
+_*.html
+
+# Configuración del repositorio y dependencias
+.gitignore
+node_modules/
