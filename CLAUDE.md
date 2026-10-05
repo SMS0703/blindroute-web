@@ -19,7 +19,7 @@ El motivo es el sonido. La página abre con el nombre ("BlindRoute" enorme) y de
 - **El problema:** texto corto + un diagrama animado (la señal del GPS choca contra el techo, adentro funcionan los beacons) y las cifras oficiales como lectura grande, separadas por filetes, sin cajas.
 - **Cómo funciona:** una sola escena fija que cambia con el scroll en tres momentos (beacons → la app te ubica → una voz te lleva). Botón "Escuchar" con la voz del navegador, solo al tocarlo.
 - **Un ejemplo:** escena en perspectiva hecha con CSS 3D (sin librerías): una terminal con estantes con volumen, beacons que laten, una persona que camina la ruta (con `transform`, ver la sección de la escena 3D) y cuatro fases que se iluminan en sincronía. Tiene botón de pausa y, con movimiento reducido, queda en el estado final. Las indicaciones en texto son el equivalente accesible.
-- **Para tu lugar:** tres ventajas pensadas para quien administra el lugar (ver reglas).
+- **Para establecimientos** (id `#para-tu-lugar`): dos ventajas pensadas para quien administra el lugar (ver reglas).
 - **Preguntas:** acordeón con `<details>` (funciona sin JavaScript).
 - **Quién lo instala:** dos tarjetas con ilustración. **Dónde:** lista grande con ícono y punto que late. **Quiénes somos:** línea de tiempo (consigna, probamos, escuchamos, el problema) + ficha tipo hoja de datos (personalidad de Electrónica).
 - **Pulido:** barra verde de avance bajo el encabezado, transparencias con alternativa (`prefers-reduced-transparency`), `prefers-contrast`, y los títulos de las secciones aterrizan justo debajo del encabezado (`scroll-margin-top` negativo para descontar el relleno).
@@ -35,6 +35,8 @@ index.html                 principal
 contacto/index.html        contacto (QR)
 assets/css/site.css        todos los estilos (tokens al inicio)
 assets/js/site.js          encabezado fijo, escena de 'cómo funciona', revelado, botón que habla
+assets/js/contacto.js      formulario de consultas de /contacto/ (solo esa página)
+api/contacto.js            función de Vercel: recibe las consultas y las manda por mail con Resend
 assets/fonts/              Sora 600/800, IBM Plex Sans 400/600 (woff2, latín)
 assets/img/                favicon.svg, apple-touch-icon.png (180×180, rehecho desde el favicon), og.png
 ```
@@ -53,19 +55,38 @@ Comandos: servir con `python -m http.server 8080 --bind 127.0.0.1` desde `web` (
 
 ## Reglas
 
-- Español rioplatense con voseo, a una persona, frases cortas, sin lenguaje de venta ni signos de exclamación.
+- Tono informativo y general, en tercera persona: la página describe el producto ("la persona", "el lugar"), no le habla al lector con "vos" ni en imperativo. Botones neutros ("Contacto", "Enviar pregunta"). Frases cortas, sin lenguaje de venta ni signos de exclamación. Excepción: las indicaciones de la voz de la app ("Seguí derecho", "Girá a la derecha", "Llegaste") son citas del producto y se mantienen.
 - Solo contenido real: no inventar anécdotas, logros, pruebas, clientes ni testimonios. Los textos salen de lo que contó el equipo y del anteproyecto.
 - Cifras oficiales con redacción y fuente exactas: INDEC 2018 (casi 900.000; unas 32.000 no pueden ver) y ANDIS nov. 2023 (80.838). Una junto a la otra, sin porcentajes entre ellas. No usar los 2.000.000 ni el 4,3 % / 40 % / 20-80 % del anteproyecto (son preliminares y erróneos).
 - No nombrar a las personas entrevistadas ni citar lo que dijeron sin su acuerdo. No nombrar competidores. No publicar costos ni funcionamiento nuevo sin confirmar.
-- Sección "Para tu lugar" (ventas): los tres datos salen del anteproyecto (funciona sin internet: §6.2; sin modificaciones invasivas: §1; usuario final sin costo y cliente = el lugar: §8.1). Confirmar con el equipo que siguen vigentes antes de publicar. No agregar costos.
-- Textos que escribió Claude y esperan aprobación: eslogan "El GPS de los lugares cerrados.", "Afuera hay GPS. Adentro, no.", "Llegar a la terminal 4." (el escenario de la terminal es ilustrativo), la analogía de Córdoba, las cinco preguntas con sus respuestas y "Si administrás un lugar, hablemos."
+- Sección "Para establecimientos": dos datos del anteproyecto (sin modificaciones invasivas: §1; usuario final sin costo y cliente = el lugar: §8.1). Confirmar con el equipo que siguen vigentes. No agregar costos.
+- No afirmar que funciona sin internet (desde las últimas versiones descarga los mapas de la nube) ni que el celular puede ir en el bolsillo (no está probado qué tan bien anda la brújula así).
+- Textos que escribió Claude y esperan aprobación: eslogan "El GPS de los lugares cerrados.", "Afuera hay GPS. Adentro, no.", "Llegar a la terminal 4." (el escenario de la terminal es ilustrativo), las tres preguntas con sus respuestas y "Instalarlo en un lugar empieza con una consulta."
 - Terminología: no usar "ciego", "ciega" ni sus plurales. Decir "personas con discapacidad visual". Las cifras oficiales conservan su redacción exacta ("mucha dificultad para ver o no pueden ver").
 - Marca: en el logo, "Blind" va en blanco y "Route" en celeste (`--celeste: #4DA6FF`, clase `.marca-r`). Se aplica en el encabezado, el `h1` del inicio y la página de contacto.
 - Indicaciones de la voz: los giros se dicen solos ("Girá a la derecha"), sin distancia. Las distancias solo acompañan a "Seguí derecho".
-- Analogía de Córdoba (sección El problema): "Casi 900.000 personas son más de la mitad de la ciudad de Córdoba", con 100 puntos y 60 encendidos (cada punto, unas 15.000 personas). Usa "alrededor de 1,5 millones de habitantes (INDEC, Censo 2022)" y aclara que es una comparación ilustrativa entre fuentes y años distintos.
 - Accesibilidad WCAG 2.2 AA: un `h1` por página, encabezados en orden, regiones con nombre, enlace para saltar al contenido, foco visible, objetivos táctiles de 48 px o más, decorativos con `aria-hidden`.
 - El contenido se lee completo sin JavaScript.
-- No generar el QR hasta tener el dominio. No hay formulario de contacto.
+- No generar el QR hasta tener el dominio.
+
+## Formulario de consultas (`/contacto/`)
+
+- Las consultas se envían a `api/contacto.js`, una función de Vercel que manda el mail con Resend. El mail de destino y la clave no están en el código: van en variables de entorno.
+- Mientras la función no esté configurada, la página oculta el formulario (pregunta `GET /api/contacto/` → `{ listo }`). Sin JavaScript, el formulario se envía igual y la función responde con una página simple.
+- Protección contra robots: campo trampa `web`, invisible para las personas. Límites: nombre 80, email 120 y mensaje 2000 caracteres.
+- El mail llega con "responder a" el email de quien preguntó, así que se contesta directo desde el correo.
+
+### Cómo activarlo
+
+1. Crear una cuenta gratis en resend.com con el mail que va a recibir las consultas.
+2. En Resend, crear una API key (permiso "Sending access").
+3. En Vercel → el proyecto → Settings → Environment Variables, cargar:
+   - `RESEND_API_KEY`: la clave del paso 2.
+   - `CONTACTO_EMAIL`: el mail que recibe las consultas (el mismo de la cuenta de Resend).
+4. Volver a desplegar (Deployments → Redeploy) para que tome las variables.
+5. Probar desde el celular: mandar una pregunta y verificar que llegue.
+
+Sin dominio propio verificado en Resend, el remitente es `onboarding@resend.dev` y solo puede enviar al mail de la cuenta de Resend. Con dominio propio: verificarlo en Resend y agregar `CONTACTO_REMITENTE` (por ejemplo `BlindRoute <consultas@dominio.com>`).
 
 ## Pendientes
 
@@ -80,7 +101,7 @@ Comandos: servir con `python -m http.server 8080 --bind 127.0.0.1` desde `web` (
 | Fotos reales | No hay | Dejar en `assets/originales/` y usarlas |
 | Acuerdo de las personas entrevistadas | Sin consultar | Antes de nombrarlas o citarlas |
 | Prueba con TalkBack / VoiceOver | No automatizable | Hacerla en un teléfono real |
-| Población de Córdoba (analogía) | "Alrededor de 1,5 millones", sin verificar contra el informe del Censo 2022 | `index.html`, bloque `.cba` (frase y fuente) |
+| Envío de consultas | Formulario oculto hasta configurar | Cuenta de Resend y variables `RESEND_API_KEY` y `CONTACTO_EMAIL` en Vercel (ver "Formulario de consultas") |
 
 ### Cómo cargar los datos de contacto
 

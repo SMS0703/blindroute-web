@@ -137,17 +137,6 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 .num .nn{white-space:nowrap}
 .apoyo{margin-top:var(--s3);color:var(--body);font-weight:600}
 .fuente{margin-top:auto;padding-top:var(--s5);font-size:var(--fs-sm);line-height:1.5;color:var(--muted);max-width:48ch}
-/* analogía de Córdoba: 100 puntos = la ciudad; se encienden 60 (casi 900.000 personas) */
-.cba{margin:var(--s7) 0 0;padding-top:var(--s5);border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5);align-items:center}
-.cba-frase{font:600 var(--fs-2xl)/1.15 var(--display);letter-spacing:-.035em;color:var(--text);max-width:22ch;text-wrap:balance}
-.cba-frase strong{color:var(--ok);font-weight:600}
-.cba-leyenda{display:flex;align-items:center;gap:var(--s2);margin-top:var(--s3);color:var(--body);font-size:var(--fs-sm)}
-.cba-leyenda .pt{width:12px;height:12px;border-radius:50%;background:var(--ok);flex:none}
-.cba .fuente{padding-top:var(--s4)}
-.cba-grilla{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:clamp(6px,2vw,10px);width:min(100%,300px)}
-.cba-grilla i{position:relative;display:block;aspect-ratio:1;border-radius:50%;background:var(--raised)}
-.cba-grilla i.on::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--ok);box-shadow:0 0 10px rgba(0,217,126,.45)}
-@media (min-width:900px){.cba{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:var(--s8)}.cba-grilla{justify-self:end;width:min(100%,340px)}}
 
 @media (min-width:900px){.cifras{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s8)}}
 
@@ -254,7 +243,7 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 .vent p{margin-top:var(--s1);color:var(--body)}
 @media (hover:hover) and (pointer:fine){.vent li:hover{border-color:var(--accent)}}
 @media (min-width:900px){
-  .vent{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .vent{grid-template-columns:repeat(2,minmax(0,1fr))}
   .vent li{grid-template-columns:minmax(0,1fr);align-items:start;gap:var(--s5);padding:var(--s6) var(--s5)}
 }
 
@@ -439,14 +428,32 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 .contacto .equipo-c{margin-top:var(--s6);padding-top:var(--s5);border-top:1px solid var(--line)}
 .equipo-c .nombres{font:600 var(--fs-xl)/1.3 var(--display);letter-spacing:-.03em;color:var(--text);text-wrap:balance}
 .equipo-c .escuela{margin-top:var(--s1);color:var(--muted)}
+/* formulario de consultas */
+.consulta{margin-top:var(--s7);padding-top:var(--s6);border-top:1px solid var(--line)}
+.consulta[hidden]{display:none}
+.consulta h2{font-size:var(--fs-2xl)}
+.consulta-intro{margin-top:var(--s2);color:var(--body)}
+.form-consulta{display:grid;gap:var(--s4);margin-top:var(--s5)}
+.fila{display:grid;gap:var(--s2)}
+.fila label{font-weight:600;color:var(--text)}
+.fila .opc{font-weight:400;color:var(--muted)}
+.fila input,.fila textarea{width:100%;min-height:52px;padding:var(--s3) var(--s4);border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--text);
+  font:400 16px/1.5 "IBM Plex Sans",system-ui,sans-serif;transition:border-color 150ms ease-out}
+.fila textarea{min-height:140px;resize:vertical}
+.fila input:focus-visible,.fila textarea:focus-visible{outline:3px solid #fff;outline-offset:2px;border-color:var(--accent)}
+@media (hover:hover) and (pointer:fine){.fila input:hover,.fila textarea:hover{border-color:#3a4350}}
+.trampa{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-consulta .btn{width:100%}
+.form-consulta .btn:disabled{opacity:.6;cursor:progress}
+.form-estado{min-height:1.5em;font-weight:600}
+.form-estado[data-tipo="ok"]{color:var(--ok)}
+.form-estado[data-tipo="error"]{color:#FF8A80}
+.form-nota{font-size:var(--fs-sm);color:var(--muted)}
 .contacto .conocer{margin-top:auto;padding-top:var(--s6)}
 .conocer .btn{width:100%}
 
 /* ---------- movimiento: solo si el sistema no pide reducirlo ---------- */
 @media (prefers-reduced-motion:no-preference){
-  /* Córdoba: los puntos verdes se encienden uno tras otro, 14 ms entre cada uno */
-  .js .cba.in .cba-grilla i.on::after{animation:prende .45s var(--ease) backwards;animation-delay:calc(var(--k) * 14ms + .35s)}
-  @keyframes prende{from{opacity:0;transform:scale(.4)}}
   html{scroll-behavior:smooth}
   .rise{animation:rise .8s var(--ease) backwards;animation-delay:calc(var(--i,0) * 90ms)}
   @keyframes rise{from{opacity:0;transform:translateY(16px)}}

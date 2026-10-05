@@ -60,7 +60,7 @@
     pasos.forEach(function (p) { po.observe(p.querySelector('h3') || p); });
   }
 
-  /* ejemplo en perspectiva: pedís el destino, los beacons te ubican, se calcula la ruta y una voz te guía.
+  /* ejemplo en perspectiva: la persona pide el destino, los beacons la ubican, se calcula la ruta y una voz la guía.
      Los metros salen de la distancia real que falta hasta el giro. Con movimiento reducido queda el estado final. */
   var rec = document.querySelector('.rec3d');
   if (rec) {
@@ -89,8 +89,8 @@
       if (t >= C) d = t < D ? TRAMO1 * camina((t - C) / (D - C)) : t < E ? TRAMO1 : t < F ? TRAMO1 + (LARGO - TRAMO1) * camina((t - E) / (F - E)) : LARGO;
       var andando = (t >= C && t < D) || (t >= E && t < F);
 
-      if (fase === 1) { b = 'Ir a terminal 4'; s = 'Elegís el destino'; }
-      else if (fase === 2) { b = 'Ubicándote…'; s = 'Con la señal de 3 beacons'; }
+      if (fase === 1) { b = 'Ir a terminal 4'; s = 'Elección del destino'; }
+      else if (fase === 2) { b = 'Ubicando…'; s = 'Con la señal de 3 beacons'; }
       else if (fase === 3) { b = 'Calculando la ruta…'; s = 'Mejor camino'; }
       else if (t < D) {
         var falta = (TRAMO1 - d) / UM;
