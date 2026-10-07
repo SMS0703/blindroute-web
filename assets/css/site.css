@@ -43,6 +43,9 @@ h2 span,h1 span{color:var(--ok)}
 /* marca: Blind en blanco, Route en celeste */
 .marca-r,h1 .marca-r,.brand .marca-r{color:var(--celeste)}
 .eyebrow.marca{color:var(--text)}
+/* logo de /contacto/: vuelve a la página principal */
+.brand.marca-c{margin-bottom:var(--s3);margin-left:calc(var(--s2) * -1);padding:0 var(--s2);border-radius:12px;font-size:var(--fs-xl)}
+.brand.marca-c .pin{color:var(--accent)}
 h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em}
 .eyebrow{margin-bottom:var(--s4);font-size:var(--fs-xs);font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
 .lead{font-size:var(--fs-lg);color:var(--body);max-width:46ch}
@@ -302,7 +305,11 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 /* --k es la escala de la escena. El dibujo proyectado mide unos 584×434 a escala 1 y queda corrido
    respecto del centro de la caja; translate lo recentra. La perspectiva también escala con --k:
    así el dibujo proyectado crece de forma uniforme y el centrado vale para cualquier ancho. */
-.vista{--k:.5;--dx:-4px;--dy:-10px;position:relative;height:calc(var(--k) * 450px + 24px)}
+/* La escena es decorativa: no recibe toques y se recorta a su caja. Sin esto, en celular el
+   navegador proyectaba la zona de toque de la marca de destino (3D) sobre los botones del inicio
+   y los dejaba sin funcionar después de hacer scroll. */
+.vista{--k:.5;--dx:-4px;--dy:-10px;position:relative;height:calc(var(--k) * 450px + 24px);overflow:hidden;pointer-events:none}
+.vista *{pointer-events:none}
 @media (max-width:359px){.vista{--k:.44}}
 @media (min-width:390px){.vista{--k:.55}}
 @media (min-width:412px){.vista{--k:.58}}
@@ -404,7 +411,7 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
   padding:max(var(--s6),env(safe-area-inset-top)) var(--pad) max(var(--s6),env(safe-area-inset-bottom))}
 .contacto::before{content:"";position:absolute;z-index:-1;left:50%;top:0;translate:-50% 0;width:140vw;max-width:900px;aspect-ratio:1;pointer-events:none;
   background:radial-gradient(circle,rgba(59,130,246,.2),rgba(59,130,246,0) 62%)}
-.beacon-s{position:relative;width:96px;aspect-ratio:1;display:grid;place-items:center;margin-bottom:var(--s5);view-transition-name:marca}
+.beacon-s{position:relative;width:96px;aspect-ratio:1;display:grid;place-items:center;margin-bottom:var(--s5)}
 .beacon-s .r{position:absolute;inset:0;border:1px solid var(--accent);border-radius:50%}
 .beacon-s .r:nth-child(1){transform:scale(.62);opacity:.5}
 .beacon-s .r:nth-child(2){opacity:.25}

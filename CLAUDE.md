@@ -21,7 +21,7 @@ El motivo es el sonido. La página abre con el nombre ("BlindRoute" enorme) y de
 - **Un ejemplo:** escena en perspectiva hecha con CSS 3D (sin librerías): una terminal con estantes con volumen, beacons que laten, una persona que camina la ruta (con `transform`, ver la sección de la escena 3D) y cuatro fases que se iluminan en sincronía. Tiene botón de pausa y, con movimiento reducido, queda en el estado final. Las indicaciones en texto son el equivalente accesible.
 - **Para establecimientos** (id `#para-tu-lugar`): dos ventajas pensadas para quien administra el lugar (ver reglas).
 - **Preguntas:** acordeón con `<details>` (funciona sin JavaScript).
-- **Quién lo instala:** dos tarjetas con ilustración. **Dónde:** lista grande con ícono y punto que late. **Quiénes somos:** línea de tiempo (consigna, probamos, escuchamos, el problema) + ficha tipo hoja de datos (personalidad de Electrónica).
+- **Quién lo instala:** dos tarjetas con ilustración. **Dónde:** lista grande con ícono y punto que late. **Quiénes somos:** línea de tiempo (consigna, escuchamos, el problema, buscamos) + ficha tipo hoja de datos (personalidad de Electrónica).
 - **Pulido:** barra verde de avance bajo el encabezado, transparencias con alternativa (`prefers-reduced-transparency`), `prefers-contrast`, y los títulos de las secciones aterrizan justo debajo del encabezado (`scroll-margin-top` negativo para descontar el relleno).
 - Marca que se conserva: paleta y las dos tipografías. Referencias de principios: Linear (filetes de 1px, jerarquía), Apple Accessibility (una situación humana por tarjeta), Be My Eyes (frases cortas, calidez).
 - `index.html` se generó con un script que inserta el campo de ondas; es HTML estático normal y se edita a mano. Si se quiere regenerar el campo, hay que repetir el cálculo: tiempo de encendido de cada beacon = (distancia / radio × 4,8 s) mod 1,6 s.
@@ -92,8 +92,10 @@ Sin dominio propio verificado en Resend, el remitente es `onboarding@resend.dev`
 
 | Dato | Estado | Dónde se carga |
 |---|---|---|
-| Email, WhatsApp y redes | Sin publicar | `contacto/index.html`, bloque `DATOS DE CONTACTO` |
-| Guardar contacto (.vcf) | Botón oculto | `contacto/blindroute.vcf` + quitar `hidden` al `<div class="guardar">` |
+| Email | Publicado: blindrouteitsv@gmail.com | `contacto/index.html`, bloque `DATOS DE CONTACTO` |
+| Instagram | Publicado: @blindroute_ | `contacto/index.html`, bloque `DATOS DE CONTACTO` |
+| WhatsApp | Sin publicar (falta el número) | `contacto/index.html`, bloque `DATOS DE CONTACTO` |
+| Guardar contacto (.vcf) | Publicado, con el mail y la dirección de Vercel | `contacto/blindroute.vcf` (sumar el teléfono cuando esté) |
 | Nombres completos y roles | Solo apellidos | `index.html` (sección Quiénes somos) y `contacto/index.html` |
 | Estado del proyecto | No se menciona | `index.html`, sección Quiénes somos |
 | Dominio y hosting | Sin definir | `og:url`, `og:image` (URL absoluta de `assets/img/og.png`) y `<link rel="canonical">` en ambas páginas |
@@ -132,3 +134,5 @@ END:VCARD
 - Mientras camina, `.rec3d.camina` activa un paso de 0.48 s (`@keyframes paso`). Cuando la escena no está en pantalla, pierde la clase `en-vista` y sus animaciones infinitas se pausan.
 - Con `prefers-reduced-motion: reduce` queda el estado final, quieto, y los textos de las cuatro fases siguen visibles.
 - Todo lo que se anima en la escena es `transform` u `opacity`. No animar `box-shadow` ni variables CSS del padre.
+- `.vista` lleva `pointer-events:none` y `overflow:hidden`. No sacarlos: en celular el navegador proyectaba la zona de toque de la marca de destino (elemento 3D) sobre los botones del inicio y los dejaba sin funcionar después de hacer scroll.
+- En `/contacto/`, el logo (`.brand.marca-c`) es un enlace a la página principal y lleva el `view-transition-name: marca`. No repetir ese nombre en otro elemento de la misma página: se cancela la transición.

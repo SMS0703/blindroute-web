@@ -1,0 +1,9 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:BlindRoute
+ORG:BlindRoute;ITS Villada · 7.º Electrónica
+EMAIL;TYPE=INTERNET:blindrouteitsv@gmail.com
+URL:https://blindroute-web.vercel.app/
+NOTE:Navegación por voz dentro de edificios.
+URL;TYPE=Instagram:https://www.instagram.com/blindroute_
+END:VCARD
