@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>BlindRoute · El GPS de los lugares cerrados</title>
 <meta name="description" content="BlindRoute guía por voz a personas con discapacidad visual adentro de lugares cerrados, donde el GPS no llega. Proyecto final de 7.º Electrónica, ITS Villada.">
-<meta name="theme-color" content="#0D1117">
+<meta name="theme-color" content="#000000">
 <meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
@@ -14,7 +14,7 @@
 <meta property="og:description" content="Navegación por voz adentro de edificios, para personas con discapacidad visual.">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/site.css?v=24">
+<link rel="stylesheet" href="assets/css/site.css?v=25">
 </head>
 <body>
 
@@ -55,9 +55,16 @@
   <section class="hero" id="inicio" aria-labelledby="h-inicio">
     <div class="campo-wrap" aria-hidden="true">
       <svg class="campo" viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><g class="ondas"><circle class="onda" cx="500" cy="500" r="480" style="--d:0s"/><circle class="onda" cx="500" cy="500" r="480" style="--d:-1.6s"/><circle class="onda" cx="500" cy="500" r="480" style="--d:-3.2s"/></g><g class="reposo"><circle cx="500" cy="500" r="160"/><circle cx="500" cy="500" r="320"/><circle cx="500" cy="500" r="480"/></g><g class="faros"><circle class="faro" cx="201" cy="592" r="8" style="--t:1.53s"/><circle class="faro" cx="749" cy="371" r="8" style="--t:1.21s"/><circle class="faro" cx="178" cy="484" r="8" style="--t:0.03s"/><circle class="faro" cx="618" cy="772" r="8" style="--t:1.37s"/><circle class="faro" cx="230" cy="213" r="8" style="--t:0.74s"/><circle class="faro" cx="687" cy="625" r="8" style="--t:0.65s"/><circle class="faro" cx="836" cy="715" r="8" style="--t:0.79s"/><circle class="faro" cx="453" cy="374" r="8" style="--t:1.34s"/><circle class="faro" cx="950" cy="449" r="8" style="--t:1.33s"/><circle class="faro" cx="569" cy="605" r="8" style="--t:1.25s"/><circle class="faro" cx="362" cy="475" r="8" style="--t:1.41s"/><circle class="faro" cx="775" cy="553" r="8" style="--t:1.20s"/><circle class="faro" cx="118" cy="650" r="8" style="--t:0.91s"/><circle class="faro" cx="292" cy="557" r="8" style="--t:0.56s"/><circle class="faro" cx="696" cy="193" r="8" style="--t:0.44s"/><circle class="faro" cx="421" cy="683" r="8" style="--t:0.39s"/><circle class="faro" cx="526" cy="243" r="8" style="--t:0.98s"/><circle class="faro" cx="644" cy="292" r="8" style="--t:0.93s"/><circle class="faro" cx="692" cy="501" r="8" style="--t:0.32s"/><circle class="faro" cx="244" cy="400" r="8" style="--t:1.14s"/></g><circle class="yo-halo" cx="500" cy="500" r="26"/><circle class="yo" cx="500" cy="500" r="12"/></svg>
-      <div class="subtitulo">
-        <svg class="ico" aria-hidden="true"><use href="#i-speaker"/></svg>
-        <span class="frases"><b>Seguí derecho.</b><b>Girá a la derecha.</b><b>Llegaste.</b></span>
+      <div class="noti">
+        <span class="app"><svg class="ico"><use href="#i-pin"/></svg></span>
+        <div class="cuerpo">
+          <p class="noti-meta"><span>BlindRoute</span><span>ahora</span></p>
+          <div class="msg frases">
+            <p><b>Seguí derecho</b><small>20 metros</small></p>
+            <p><b>Girá a la derecha</b></p>
+            <p><b>Llegaste</b><small>Terminal 4</small></p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="hero-txt">
@@ -66,7 +73,7 @@
       <p class="lead rise" style="--i:3">Guía por voz a personas con discapacidad visual, adentro de edificios.</p>
       <div class="btns rise" style="--i:4">
         <a class="btn btn-primary" href="contacto/">Contacto</a>
-        <a class="btn btn-ghost" href="#como-funciona">Cómo funciona</a>
+        <a class="mas" href="#como-funciona">Cómo funciona</a>
       </div>
     </div>
   </section>
@@ -214,7 +221,7 @@
       <p class="eyebrow reveal">Para establecimientos</p>
       <h2 id="h-lugar" class="reveal" style="--i:1">Para quien administra <span>un lugar.</span></h2>
       <ul class="vent">
-                <li class="reveal" style="--i:2"><span class="figura" aria-hidden="true"><svg class="ico"><use href="#i-obras"/></svg></span><div><h3>Sin obras.</h3><p>No pide modificaciones invasivas.</p></div></li>
+        <li class="reveal" style="--i:2"><span class="figura" aria-hidden="true"><svg class="ico"><use href="#i-obras"/></svg></span><div><h3>Sin obras.</h3><p>No pide modificaciones invasivas.</p></div></li>
         <li class="reveal" style="--i:3"><span class="figura" aria-hidden="true"><svg class="ico"><use href="#i-gratis"/></svg></span><div><h3>Gratis para quien llega.</h3><p>El servicio lo adquiere el lugar.</p></div></li>
       </ul>
     </div>
@@ -260,7 +267,7 @@
       <p class="eyebrow reveal">Preguntas</p>
       <h2 id="h-preguntas" class="reveal" style="--i:1">Lo que <span>nos preguntan.</span></h2>
       <div class="faq">
-                        <details class="reveal" style="--i:3"><summary>¿Quién lo paga?</summary><p>El lugar que lo instala. La persona que lo usa no paga.</p></details>
+        <details class="reveal" style="--i:3"><summary>¿Quién lo paga?</summary><p>El lugar que lo instala. La persona que lo usa no paga.</p></details>
         <details class="reveal" style="--i:4"><summary>¿Qué hay que instalar?</summary><p>Un equipamiento compacto que se distribuye por el lugar, y el mapa del edificio en la app.</p></details>
         <details class="reveal" style="--i:5"><summary>¿Para quién es?</summary><p>Para personas con discapacidad visual que quieren moverse solas adentro de un edificio.</p></details>
       </div>
@@ -272,7 +279,7 @@
     <div class="caja">
       <h2 id="h-llegada" class="reveal">Instalarlo en un lugar <span>empieza con una consulta.</span></h2>
       <p class="lead reveal" style="--i:1">Un lugar no es accesible solo por poder entrar. También hay que poder orientarse adentro.</p>
-      <a class="btn btn-primary btn-lg reveal" style="--i:2" href="contacto/">Contacto</a>
+      <div class="cta reveal" style="--i:2"><a class="btn btn-primary btn-lg" href="contacto/">Contacto</a></div>
     </div>
   </section>
 
@@ -288,6 +295,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=24" defer></script>
+<script src="assets/js/site.js?v=25" defer></script>
 </body>
 </html>

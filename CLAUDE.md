@@ -15,7 +15,7 @@ Especificación original: `prompt-maestro-web.md` (los puntos 4, 5 y 6 fueron re
 
 El motivo es el sonido. La página abre con el nombre ("BlindRoute" enorme) y debajo "El GPS de los lugares cerrados." (la analogía anterior, "un edificio que te habla", no gustó) El inicio es un campo de ondas que sale de un punto (vos) y "despierta" a los beacons a su paso, con una voz que da indicaciones como subtítulo. No se usa el ejemplo de la góndola ni el auricular (el equipo pidió sacarlos). La página no debe parecerse a la presentación: nada de tarjetas numeradas 01/02/03.
 
-- **Inicio:** campo de ondas (SVG generado: cada beacon se enciende justo cuando la onda lo alcanza) + titular "El GPS de los lugares cerrados."
+- **Inicio** (variante "Interfaz", elegida con prototipos): texto alineado a la izquierda y, arriba (en celular) o a la derecha (en compu), el campo de ondas (SVG generado: cada beacon se enciende justo cuando la onda lo alcanza) con un aviso estilo iOS (`.noti`) que alterna "Seguí derecho / Girá a la derecha / Llegaste". Botones: "Contacto" (píldora azul) y el enlace "Cómo funciona ›" (`.mas`).
 - **El problema:** texto corto + un diagrama animado (la señal del GPS choca contra el techo, adentro funcionan los beacons) y las cifras oficiales como lectura grande, separadas por filetes, sin cajas.
 - **Cómo funciona:** una sola escena fija que cambia con el scroll en tres momentos (beacons → la app te ubica → una voz te lleva). Botón "Escuchar" con la voz del navegador, solo al tocarlo.
 - **Un ejemplo:** escena en perspectiva hecha con CSS 3D (sin librerías): una terminal con estantes con volumen, beacons que laten, una persona que camina la ruta (con `transform`, ver la sección de la escena 3D) y cuatro fases que se iluminan en sincronía. Tiene botón de pausa y, con movimiento reducido, queda en el estado final. Las indicaciones en texto son el equivalente accesible.
@@ -23,8 +23,9 @@ El motivo es el sonido. La página abre con el nombre ("BlindRoute" enorme) y de
 - **Preguntas:** acordeón con `<details>` (funciona sin JavaScript).
 - **Quién lo instala:** dos tarjetas con ilustración. **Dónde:** lista grande con ícono y punto que late. **Quiénes somos:** línea de tiempo (consigna, escuchamos, el problema, buscamos) + ficha tipo hoja de datos (personalidad de Electrónica).
 - **Pulido:** barra verde de avance bajo el encabezado, transparencias con alternativa (`prefers-reduced-transparency`), `prefers-contrast`, y los títulos de las secciones aterrizan justo debajo del encabezado (`scroll-margin-top` negativo para descontar el relleno).
-- Tipografía: Atkinson Hyperlegible Next (Braille Institute, pensada para personas con baja visión) en todo el sitio y Atkinson Hyperlegible Mono para antetítulos, números y etiquetas. Interletrado moderado (no los -0,05 em de antes). Los títulos van en un solo color; el verde queda para el eslogan del inicio, la voz y la ruta.
-- Marca que se conserva: paleta. Referencias de principios: Linear (filetes de 1px, jerarquía), Apple Accessibility (una situación humana por tarjeta), Be My Eyes (frases cortas, calidez).
+- Estética Apple sobre la base oscura: fondo negro, tarjetas `#1c1c1e` sin borde y con esquinas grandes, botones en píldora, encabezado de vidrio esmerilado, mucho aire entre secciones.
+- Tipografía: Alegreya Sans (Huerta Tipográfica, Argentina) 400/500/700 en todo el sitio, elegida en una ronda de prototipos. Tiene números de estilo antiguo por defecto: el `body` fuerza `lining-nums`. Los antetítulos van en azul, en la misma fuente (sin mayúsculas ni monoespaciada). Los títulos van en un solo color; el verde queda para el eslogan del inicio, la voz y la ruta.
+- Referencias de principios: Linear (filetes de 1px, jerarquía), Apple Accessibility (una situación humana por tarjeta), Be My Eyes (frases cortas, calidez).
 - `index.html` se generó con un script que inserta el campo de ondas; es HTML estático normal y se edita a mano. Si se quiere regenerar el campo, hay que repetir el cálculo: tiempo de encendido de cada beacon = (distancia / radio × 4,8 s) mod 1,6 s.
 
 ## Stack y estructura
@@ -38,7 +39,7 @@ assets/css/site.css        todos los estilos (tokens al inicio)
 assets/js/site.js          encabezado fijo, escena de 'cómo funciona', revelado, botón que habla
 assets/js/contacto.js      formulario de consultas de /contacto/ (solo esa página)
 api/contacto.js            función de Vercel: recibe las consultas y las manda por mail con Resend
-assets/fonts/              Atkinson Hyperlegible Next 400/700/800 y Atkinson Hyperlegible Mono 500 (woff2, latín)
+assets/fonts/              Alegreya Sans 400/500/700 (woff2, latín)
 assets/img/                favicon.svg, apple-touch-icon.png (180×180, rehecho desde el favicon), og.png
 ```
 
@@ -46,9 +47,9 @@ Comandos: servir con `python -m http.server 8080 --bind 127.0.0.1` desde `web` (
 
 ## Sistema
 
-- Colores: `#0D1117` fondo, `#05070A` profundo, `#161B22` tarjeta, `#21262D` elevada, `#2A313B` línea, `#fff` título, `#E6EDF3` párrafo, `#9BA5B4` secundario, `#3B82F6` acento, `#00D97E` verde (ruta, voz, positivo). El rojo `#B71C1C` no se usa como color de texto. En botones de acento, texto `#0D1117`.
+- Colores (oscuros de Apple): `#000` fondo, `#0b0b0c` profundo (cierre y pie), `#1c1c1e` tarjeta, `#2c2c2e` elevada, `#38383a` línea, `#f5f5f7` título, `#a1a1a6` párrafo, `#86868b` secundario, `#2997ff` acento (enlaces, íconos, antetítulos, foco), `#0071e3` botón (texto blanco, 4,7:1; el hover oscurece a `#0066d9` para no bajar de 4,5:1), `#30d158` verde (ruta, voz, positivo). Error del formulario `#ff6961`. El rojo `#B71C1C` no se usa como color de texto.
 - Espaciado: escala de 4 (`--s1` a `--s9`). Tipografía: `--fs-xs` a `--fs-hero`, fluida con `clamp()`.
-- Movimiento: entradas de 0,6 a 0,8 s con `cubic-bezier(.2,.8,.2,1)`; interacciones menores a 200 ms. Todo dentro de `prefers-reduced-motion: no-preference`; con movimiento reducido el camino queda lleno y estático y la ruta del mapa, dibujada.
+- Movimiento: entradas de 0,7 a 0,9 s con `cubic-bezier(.23,1,.32,1)` (`--ease`); interacciones de 160 a 200 ms; al presionar, `scale(.97)`. Las preguntas se abren con animación de altura (`::details-content` + `interpolate-size`), donde el navegador lo soporta. Todo dentro de `prefers-reduced-motion: no-preference`; con movimiento reducido el camino queda lleno y estático y la ruta del mapa, dibujada.
 - Cada elemento interactivo tiene reposo, hover (solo `hover:hover`), foco (`:focus-visible`) y presionado.
 - Transición entre páginas con `@view-transition`; el pin del encabezado se transforma en el de contacto.
 - Probado con texto al 200 % en 320 px sin desbordes (títulos con `overflow-wrap:anywhere`, grillas con `minmax(0,1fr)`, encabezado que puede pasar a dos líneas).
