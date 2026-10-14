@@ -23,7 +23,8 @@ El motivo es el sonido. La página abre con el nombre ("BlindRoute" enorme) y de
 - **Preguntas:** acordeón con `<details>` (funciona sin JavaScript).
 - **Quién lo instala:** dos tarjetas con ilustración. **Dónde:** lista grande con ícono y punto que late. **Quiénes somos:** línea de tiempo (consigna, escuchamos, el problema, buscamos) + ficha tipo hoja de datos (personalidad de Electrónica).
 - **Pulido:** barra verde de avance bajo el encabezado, transparencias con alternativa (`prefers-reduced-transparency`), `prefers-contrast`, y los títulos de las secciones aterrizan justo debajo del encabezado (`scroll-margin-top` negativo para descontar el relleno).
-- Marca que se conserva: paleta y las dos tipografías. Referencias de principios: Linear (filetes de 1px, jerarquía), Apple Accessibility (una situación humana por tarjeta), Be My Eyes (frases cortas, calidez).
+- Tipografía: Atkinson Hyperlegible Next (Braille Institute, pensada para personas con baja visión) en todo el sitio y Atkinson Hyperlegible Mono para antetítulos, números y etiquetas. Interletrado moderado (no los -0,05 em de antes). Los títulos van en un solo color; el verde queda para el eslogan del inicio, la voz y la ruta.
+- Marca que se conserva: paleta. Referencias de principios: Linear (filetes de 1px, jerarquía), Apple Accessibility (una situación humana por tarjeta), Be My Eyes (frases cortas, calidez).
 - `index.html` se generó con un script que inserta el campo de ondas; es HTML estático normal y se edita a mano. Si se quiere regenerar el campo, hay que repetir el cálculo: tiempo de encendido de cada beacon = (distancia / radio × 4,8 s) mod 1,6 s.
 
 ## Stack y estructura
@@ -37,7 +38,7 @@ assets/css/site.css        todos los estilos (tokens al inicio)
 assets/js/site.js          encabezado fijo, escena de 'cómo funciona', revelado, botón que habla
 assets/js/contacto.js      formulario de consultas de /contacto/ (solo esa página)
 api/contacto.js            función de Vercel: recibe las consultas y las manda por mail con Resend
-assets/fonts/              Sora 600/800, IBM Plex Sans 400/600 (woff2, latín)
+assets/fonts/              Atkinson Hyperlegible Next 400/700/800 y Atkinson Hyperlegible Mono 500 (woff2, latín)
 assets/img/                favicon.svg, apple-touch-icon.png (180×180, rehecho desde el favicon), og.png
 ```
 
@@ -65,6 +66,8 @@ Comandos: servir con `python -m http.server 8080 --bind 127.0.0.1` desde `web` (
 - Terminología: no usar "ciego", "ciega" ni sus plurales. Decir "personas con discapacidad visual". Las cifras oficiales conservan su redacción exacta ("mucha dificultad para ver o no pueden ver").
 - Marca: en el logo, "Blind" va en blanco y "Route" en celeste (`--celeste: #4DA6FF`, clase `.marca-r`). Se aplica en el encabezado, el `h1` del inicio y la página de contacto.
 - Indicaciones de la voz: los giros se dicen solos ("Girá a la derecha"), sin distancia. Las distancias solo acompañan a "Seguí derecho".
+- No revelar cómo funciona la tecnología: hablar de "tecnología propia", "una red de referencia discreta" o "un equipamiento compacto", nunca de beacons, Bluetooth, señales, cantidad de dispositivos ni cálculos. Los nombres de clases del código pueden seguir diciendo "beacon"; los textos visibles y las etiquetas `aria-label`, no.
+- Sin comentarios en los archivos publicados (HTML, CSS y JS de `assets/`): todo se ve con "Inspeccionar". Las notas van en este archivo, que no se publica.
 - Accesibilidad WCAG 2.2 AA: un `h1` por página, encabezados en orden, regiones con nombre, enlace para saltar al contenido, foco visible, objetivos táctiles de 48 px o más, decorativos con `aria-hidden`.
 - El contenido se lee completo sin JavaScript.
 - No generar el QR hasta tener el dominio.
@@ -92,9 +95,9 @@ Sin dominio propio verificado en Resend, el remitente es `onboarding@resend.dev`
 
 | Dato | Estado | Dónde se carga |
 |---|---|---|
-| Email | Publicado: blindrouteitsv@gmail.com | `contacto/index.html`, bloque `DATOS DE CONTACTO` |
+| Email | Oculto: la cuenta blindrouteitsv@gmail.com está inhabilitada (apelación en curso). El formulario sigue: las consultas quedan en Resend → Emails | Volver a poner el `<li>` de abajo en la lista `.medios` y la línea `EMAIL;TYPE=INTERNET:blindrouteitsv@gmail.com` en `contacto/blindroute.vcf` |
 | Instagram | Publicado: @blindroute_ | `contacto/index.html`, bloque `DATOS DE CONTACTO` |
-| WhatsApp | Sin publicar (falta el número) | `contacto/index.html`, bloque `DATOS DE CONTACTO` |
+| WhatsApp | Sin publicar (falta el número) | Agregar el `<li>` de abajo a la lista `.medios` |
 | Guardar contacto (.vcf) | Publicado, con el mail y la dirección de Vercel | `contacto/blindroute.vcf` (sumar el teléfono cuando esté) |
 | Nombres completos y roles | Solo apellidos | `index.html` (sección Quiénes somos) y `contacto/index.html` |
 | Estado del proyecto | No se menciona | `index.html`, sección Quiénes somos |
@@ -107,8 +110,23 @@ Sin dominio propio verificado en Resend, el remitente es `onboarding@resend.dev`
 
 ### Cómo cargar los datos de contacto
 
-1. Abrí `contacto/index.html` y buscá el comentario `DATOS DE CONTACTO`.
-2. En cada `<li>` que vayas a publicar: reemplazá `COMPLETAR` en el `href` y en `<span class="v">`, y borrá el atributo `hidden` del `<li>`. Ejemplos de `href`: `mailto:correo@dominio.com`, `https://wa.me/549XXXXXXXXXX` (solo dígitos, con código de país), `https://www.instagram.com/usuario`.
+1. Abrí `contacto/index.html` y buscá la lista `<ul class="medios">` (no hay comentarios en el HTML publicado). Para sumar un medio, pegá su `<li>`:
+
+```html
+<li data-medio="email">
+  <a class="medio" href="mailto:blindrouteitsv@gmail.com">
+    <svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>
+    <span><small>Email</small><span class="v">blindrouteitsv@gmail.com</span></span>
+  </a>
+</li>
+<li data-medio="whatsapp">
+  <a class="medio" href="https://wa.me/549XXXXXXXXXX">
+    <svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+    <span><small>WhatsApp</small><span class="v">+54 9 XXX XXX-XXXX</span></span>
+  </a>
+</li>
+```
+2. Reemplazá el número o el usuario en el `href` y en `<span class="v">`. Ejemplos de `href`: `mailto:correo@dominio.com`, `https://wa.me/549XXXXXXXXXX` (solo dígitos, con código de país), `https://www.instagram.com/usuario`.
 3. Para otra red, copiá un `<li>`, cambiá el nombre y el ícono (los íconos están en el `<svg>` del inicio de la página).
 4. Cuando hay al menos un medio visible, el mensaje "disponibles pronto" se oculta solo.
 5. Guardar contacto: creá `contacto/blindroute.vcf` (UTF-8, saltos de línea CRLF) con este contenido y tus datos reales, y borrá `hidden` del `<div class="guardar">`:

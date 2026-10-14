@@ -12,10 +12,9 @@
 <meta property="og:site_name" content="BlindRoute">
 <meta property="og:title" content="BlindRoute · El GPS de los lugares cerrados">
 <meta property="og:description" content="Navegación por voz adentro de edificios, para personas con discapacidad visual.">
-<!-- PENDIENTE (dominio): og:url, og:image (URL absoluta de assets/img/og.png) y <link rel="canonical">. Ver CLAUDE.md. -->
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/site.css?v=22">
+<link rel="stylesheet" href="assets/css/site.css?v=24">
 </head>
 <body>
 
@@ -53,7 +52,6 @@
 
 <main id="contenido">
 
-  <!-- Inicio -->
   <section class="hero" id="inicio" aria-labelledby="h-inicio">
     <div class="campo-wrap" aria-hidden="true">
       <svg class="campo" viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><g class="ondas"><circle class="onda" cx="500" cy="500" r="480" style="--d:0s"/><circle class="onda" cx="500" cy="500" r="480" style="--d:-1.6s"/><circle class="onda" cx="500" cy="500" r="480" style="--d:-3.2s"/></g><g class="reposo"><circle cx="500" cy="500" r="160"/><circle cx="500" cy="500" r="320"/><circle cx="500" cy="500" r="480"/></g><g class="faros"><circle class="faro" cx="201" cy="592" r="8" style="--t:1.53s"/><circle class="faro" cx="749" cy="371" r="8" style="--t:1.21s"/><circle class="faro" cx="178" cy="484" r="8" style="--t:0.03s"/><circle class="faro" cx="618" cy="772" r="8" style="--t:1.37s"/><circle class="faro" cx="230" cy="213" r="8" style="--t:0.74s"/><circle class="faro" cx="687" cy="625" r="8" style="--t:0.65s"/><circle class="faro" cx="836" cy="715" r="8" style="--t:0.79s"/><circle class="faro" cx="453" cy="374" r="8" style="--t:1.34s"/><circle class="faro" cx="950" cy="449" r="8" style="--t:1.33s"/><circle class="faro" cx="569" cy="605" r="8" style="--t:1.25s"/><circle class="faro" cx="362" cy="475" r="8" style="--t:1.41s"/><circle class="faro" cx="775" cy="553" r="8" style="--t:1.20s"/><circle class="faro" cx="118" cy="650" r="8" style="--t:0.91s"/><circle class="faro" cx="292" cy="557" r="8" style="--t:0.56s"/><circle class="faro" cx="696" cy="193" r="8" style="--t:0.44s"/><circle class="faro" cx="421" cy="683" r="8" style="--t:0.39s"/><circle class="faro" cx="526" cy="243" r="8" style="--t:0.98s"/><circle class="faro" cx="644" cy="292" r="8" style="--t:0.93s"/><circle class="faro" cx="692" cy="501" r="8" style="--t:0.32s"/><circle class="faro" cx="244" cy="400" r="8" style="--t:1.14s"/></g><circle class="yo-halo" cx="500" cy="500" r="26"/><circle class="yo" cx="500" cy="500" r="12"/></svg>
@@ -73,7 +71,6 @@
     </div>
   </section>
 
-  <!-- El problema -->
   <section class="sec problema" id="problema" aria-labelledby="h-problema">
     <div class="wrap">
       <div class="prob">
@@ -83,7 +80,7 @@
           <p class="lead reveal" style="--i:2">Un techo corta la señal. En un lugar desconocido, la única opción suele ser preguntar.</p>
         </div>
         <figure class="diag reveal" style="--i:2">
-          <svg viewBox="0 0 360 270" role="img" aria-label="Un satélite envía señal de GPS, pero el techo de un edificio la frena. Adentro, los beacons sí llegan a la persona.">
+          <svg viewBox="0 0 360 270" role="img" aria-label="Un satélite envía señal de GPS, pero el techo de un edificio la frena. Adentro, la tecnología de BlindRoute sí llega a la persona.">
             <g class="sat"><rect x="54" y="26" width="22" height="22" rx="5"/><path d="M40 37h14M76 37h14M65 48v8"/></g>
             <g class="rayos"><path d="M70 56L206 118"/><path d="M70 56L262 118"/><path d="M70 56L318 118"/></g>
             <g class="tope"><path d="M200 112l12 12M212 112l-12 12"/><path d="M256 112l12 12M268 112l-12 12"/><path d="M312 112l12 12M324 112l-12 12"/></g>
@@ -97,7 +94,7 @@
               <circle class="persona-d" cx="260" cy="182" r="8"/>
             </g>
             <text class="et et-gps" x="96" y="124">GPS</text>
-            <text class="et et-b" x="260" y="262" text-anchor="middle">Beacons</text>
+            <text class="et et-b" x="260" y="262" text-anchor="middle">BlindRoute</text>
           </svg>
         </figure>
       </div>
@@ -115,7 +112,6 @@
     </div>
   </section>
 
-  <!-- Cómo funciona: una sola escena que cambia mientras bajás -->
   <section class="sec como" id="como-funciona" aria-labelledby="h-como">
     <div class="wrap">
       <p class="eyebrow reveal">Cómo funciona</p>
@@ -123,7 +119,7 @@
     </div>
     <div class="demo wrap" data-step="3">
       <div class="escena-wrap">
-        <svg class="escena" viewBox="0 0 400 400" role="img" aria-label="Esquema de un espacio con cuatro beacons. La app calcula la posición de la persona a partir de la señal de tres de ellos y traza el camino hasta el destino.">
+        <svg class="escena" viewBox="0 0 400 400" role="img" aria-label="Esquema de un espacio preparado con BlindRoute. La app reconoce dónde está la persona y traza el camino hasta el destino.">
           <rect class="marco" x="8" y="8" width="384" height="384" rx="26"/>
           <g class="beacons">
             <g class="beacon"><circle class="anillo" cx="80" cy="100" r="26"/><circle class="anillo a2" cx="80" cy="100" r="26"/><circle class="punto" cx="80" cy="100" r="5"/></g>
@@ -149,13 +145,13 @@
       <ol class="pasos" role="list">
         <li class="paso" data-n="1">
           <span class="n" aria-hidden="true">1</span>
-          <h3>Beacons en el edificio</h3>
-          <p>Emisores Bluetooth repartidos por el lugar indican la posición de la persona.</p>
+          <h3>Un edificio preparado</h3>
+          <p>El lugar incorpora una red de referencia discreta, pensada para orientarse adentro.</p>
         </li>
         <li class="paso" data-n="2">
           <span class="n" aria-hidden="true">2</span>
           <h3>La app ubica a la persona</h3>
-          <p>Calcula la posición y el mejor camino hasta el destino elegido.</p>
+          <p>Tecnología propia reconoce la posición y elige el mejor camino hasta el destino.</p>
         </li>
         <li class="paso" data-n="3">
           <span class="n" aria-hidden="true">3</span>
@@ -166,14 +162,13 @@
     </div>
   </section>
 
-  <!-- Ejemplo de funcionamiento en perspectiva -->
   <section class="sec ejemplo" id="ejemplo" aria-labelledby="h-ejemplo">
     <div class="wrap">
       <p class="eyebrow reveal">Un ejemplo</p>
       <h2 id="h-ejemplo" class="reveal" style="--i:1">Llegar a la <span>terminal 4.</span></h2>
       <p class="lead reveal" style="--i:2">Una persona entra a un aeropuerto que no conoce. Indica a dónde quiere ir y la app la guía hasta ahí.</p>
       <div class="rec3d" data-ejemplo data-fase="4">
-        <div class="vista" role="img" aria-label="Vista en perspectiva de un aeropuerto con entrada, cuatro terminales y cinco beacons. La persona pide ir a la terminal 4, los beacons la ubican, se calcula la ruta y una voz la guía: sigue derecho, gira a la derecha y llega.">
+        <div class="vista" role="img" aria-label="Vista en perspectiva de un aeropuerto con entrada y cuatro terminales. La persona pide ir a la terminal 4, la app la ubica, calcula la ruta y una voz la guía: sigue derecho, gira a la derecha y llega.">
           <div class="mundo" aria-hidden="true">
             <div class="piso"></div>
             <div class="bahia" style="left:40px" data-n="1"></div><div class="bahia" style="left:112px" data-n="2"></div><div class="bahia" style="left:184px" data-n="3"></div><div class="bahia meta-b" style="left:256px" data-n="4"></div><div class="caja3 pared" style="--x:0px;--y:0px;--w:400px;--d:8px;--h:52px"><i class="f-cima"></i><i class="f-frente"></i><i class="f-lado"></i></div><div class="caja3 pared" style="--x:392px;--y:0px;--w:8px;--d:400px;--h:52px"><i class="f-cima"></i><i class="f-frente"></i><i class="f-lado"></i></div><div class="caja3 bajo" style="--x:0px;--y:0px;--w:4px;--d:400px;--h:4px"><i class="f-cima"></i><i class="f-frente"></i><i class="f-lado"></i></div><div class="caja3 bajo" style="--x:0px;--y:396px;--w:150px;--d:4px;--h:4px"><i class="f-cima"></i><i class="f-frente"></i><i class="f-lado"></i></div><div class="caja3 bajo" style="--x:212px;--y:396px;--w:188px;--d:4px;--h:4px"><i class="f-cima"></i><i class="f-frente"></i><i class="f-lado"></i></div><div class="caja3 " style="--x:52px;--y:96px;--w:22px;--d:150px;--h:42px"><i class="f-cima"></i><i class="f-frente"></i><i class="f-lado"></i></div><div class="caja3 " style="--x:104px;--y:96px;--w:22px;--d:150px;--h:42px"><i class="f-cima"></i><i class="f-frente"></i><i class="f-lado"></i></div><div class="caja3 " style="--x:240px;--y:110px;--w:22px;--d:130px;--h:42px"><i class="f-cima"></i><i class="f-frente"></i><i class="f-lado"></i></div><div class="caja3 " style="--x:292px;--y:110px;--w:22px;--d:130px;--h:42px"><i class="f-cima"></i><i class="f-frente"></i><i class="f-lado"></i></div><div class="caja3 " style="--x:52px;--y:276px;--w:74px;--d:22px;--h:30px"><i class="f-cima"></i><i class="f-frente"></i><i class="f-lado"></i></div><div class="caja3 " style="--x:240px;--y:276px;--w:74px;--d:22px;--h:30px"><i class="f-cima"></i><i class="f-frente"></i><i class="f-lado"></i></div><svg class="ruta3" viewBox="0 0 400 400"><path pathLength="1" d="M181 385 V76 H284"/></svg><svg class="loc3" viewBox="0 0 400 400"><path pathLength="1" d="M181 385 L60 350"/><path pathLength="1" d="M181 385 L181 230"/><path pathLength="1" d="M181 385 L350 200"/></svg><div class="faro3" style="left:60px;top:350px;--r:0s"></div><div class="faro3" style="left:320px;top:350px;--r:0.8s"></div><div class="faro3" style="left:181px;top:230px;--r:1.6s"></div><div class="faro3" style="left:181px;top:80px;--r:2.4s"></div><div class="faro3" style="left:350px;top:200px;--r:3.2s"></div><div class="meta3" style="left:284px;top:76px"></div><div class="cartel entrada" style="left:181px;top:446px"><span>Entrada</span></div><div class="persona"><div class="fig"></div></div><div class="globo" style="left:181px;top:385px"><span>Ir a terminal 4</span></div>
@@ -186,7 +181,7 @@
           </div>
           <ol class="fases" role="list">
             <li class="fase"><span class="n" aria-hidden="true">1</span><div><h3>Elige el destino</h3><p>Pide ir a la terminal 4.</p></div></li>
-            <li class="fase"><span class="n" aria-hidden="true">2</span><div><h3>Los beacons la ubican</h3><p>Con la señal de varios, la app sabe dónde está.</p></div></li>
+            <li class="fase"><span class="n" aria-hidden="true">2</span><div><h3>La app la ubica</h3><p>Reconoce dónde está, aunque no haya GPS.</p></div></li>
             <li class="fase"><span class="n" aria-hidden="true">3</span><div><h3>Se calcula la ruta</h3><p>La app traza el mejor camino hasta el destino.</p></div></li>
             <li class="fase"><span class="n" aria-hidden="true">4</span><div><h3>Una voz la guía</h3><p>Indica cuánto falta y cuándo girar, hasta llegar.</p></div></li>
           </ol>
@@ -196,7 +191,6 @@
     </div>
   </section>
 
-  <!-- Quién lo instala -->
   <section class="sec instala" id="instalacion" aria-labelledby="h-instala">
     <div class="wrap">
       <p class="eyebrow reveal">Quién lo instala</p>
@@ -204,7 +198,7 @@
       <div class="dos">
         <div class="lado reveal" style="--i:2">
           <span class="figura" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="6" width="28" height="36" rx="4"/><path d="M18 14h.01M30 14h.01M18 22h.01M30 22h.01M20 42v-8h8v8"/><circle class="latido-i" cx="24" cy="27" r="3" fill="currentColor"/></svg></span>
-          <div><p class="quien">El lugar</p><p>Adquiere el equipamiento y la licencia, y coloca los beacons.</p></div>
+          <div><p class="quien">El lugar</p><p>Adquiere el equipamiento y la licencia, y lo incorpora al edificio.</p></div>
         </div>
         <svg class="union reveal" viewBox="0 0 120 24" aria-hidden="true" focusable="false"><path class="hilo" pathLength="1" d="M2 12 H118"/><circle cx="2" cy="12" r="4"/><circle cx="118" cy="12" r="4"/></svg>
         <div class="lado reveal" style="--i:3">
@@ -215,7 +209,6 @@
     </div>
   </section>
 
-  <!-- Para quien administra un lugar -->
   <section class="sec ventajas" id="para-tu-lugar" aria-labelledby="h-lugar">
     <div class="wrap">
       <p class="eyebrow reveal">Para establecimientos</p>
@@ -227,7 +220,6 @@
     </div>
   </section>
 
-  <!-- Dónde -->
   <section class="sec donde" id="donde" aria-labelledby="h-donde">
     <div class="wrap">
       <p class="eyebrow reveal">Dónde</p>
@@ -243,7 +235,6 @@
     </div>
   </section>
 
-  <!-- Quiénes somos -->
   <section class="sec somos" id="somos" aria-labelledby="h-somos">
     <div class="wrap">
       <p class="eyebrow reveal">Quiénes somos</p>
@@ -255,7 +246,6 @@
         <li><span class="nodo" aria-hidden="true"></span><h3>Buscamos</h3><p>Brindar nuevos clientes a los establecimientos, fomentar políticas de inclusión y otorgar autonomía al 100 %.</p></li>
       </ol>
       <p class="fuerte reveal">En una casa conocida no hace falta. En un súper, una terminal o un aeropuerto, sí.</p>
-      <!-- PENDIENTE: nombres completos y roles. Por ahora solo apellidos. Ver CLAUDE.md. -->
       <dl class="ficha reveal">
         <div><dt>Proyecto</dt><dd>BlindRoute</dd></div>
         <div><dt>Equipo</dt><dd>Giraudo · Apra · Cantarelli · Moesch</dd></div>
@@ -265,20 +255,18 @@
     </div>
   </section>
 
-  <!-- Preguntas -->
   <section class="sec preguntas" id="preguntas" aria-labelledby="h-preguntas">
     <div class="wrap">
       <p class="eyebrow reveal">Preguntas</p>
       <h2 id="h-preguntas" class="reveal" style="--i:1">Lo que <span>nos preguntan.</span></h2>
       <div class="faq">
                         <details class="reveal" style="--i:3"><summary>¿Quién lo paga?</summary><p>El lugar que lo instala. La persona que lo usa no paga.</p></details>
-        <details class="reveal" style="--i:4"><summary>¿Qué hay que instalar?</summary><p>Beacons, pequeños emisores Bluetooth repartidos por el lugar, y el mapa del edificio en la app.</p></details>
+        <details class="reveal" style="--i:4"><summary>¿Qué hay que instalar?</summary><p>Un equipamiento compacto que se distribuye por el lugar, y el mapa del edificio en la app.</p></details>
         <details class="reveal" style="--i:5"><summary>¿Para quién es?</summary><p>Para personas con discapacidad visual que quieren moverse solas adentro de un edificio.</p></details>
       </div>
     </div>
   </section>
 
-  <!-- Cierre -->
   <section class="llegada" aria-labelledby="h-llegada">
     <div class="halo" aria-hidden="true"><i></i><i></i><i></i></div>
     <div class="caja">
@@ -300,6 +288,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=22" defer></script>
+<script src="assets/js/site.js?v=24" defer></script>
 </body>
 </html>

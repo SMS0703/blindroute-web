@@ -1,6 +1,3 @@
-/* Formulario de consultas de /contacto/.
-   Sin JavaScript, el formulario se envía igual (la función responde con una página simple).
-   Con JavaScript: se oculta si el envío no está configurado y envía sin recargar la página. */
 (function () {
   var seccion = document.querySelector('.consulta');
   var form = seccion && seccion.querySelector('form');
@@ -16,7 +13,6 @@
     estado.setAttribute('data-tipo', tipo || '');
   }
 
-  // Si la función no responde o no está configurada, el formulario no se muestra.
   fetch(url, { headers: { Accept: 'application/json' }, cache: 'no-store' })
     .then(function (r) { return r.ok ? r.json() : { listo: false }; })
     .catch(function () { return { listo: false }; })

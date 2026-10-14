@@ -1,10 +1,7 @@
-/* BlindRoute · sitio v3 · "un edificio que te habla"
-   El motivo es el sonido: ondas que salen de un punto y despiertan a los beacons a su paso. */
-
-@font-face{font-family:Sora;font-weight:600;font-display:swap;src:url(../fonts/sora-600.woff2) format("woff2")}
-@font-face{font-family:Sora;font-weight:800;font-display:swap;src:url(../fonts/sora-800.woff2) format("woff2")}
-@font-face{font-family:"IBM Plex Sans";font-weight:400;font-display:swap;src:url(../fonts/plex-400.woff2) format("woff2")}
-@font-face{font-family:"IBM Plex Sans";font-weight:600;font-display:swap;src:url(../fonts/plex-600.woff2) format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible Next";font-weight:400;font-display:swap;src:url(../fonts/atk-400.woff2) format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible Next";font-weight:700;font-display:swap;src:url(../fonts/atk-700.woff2) format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible Next";font-weight:800;font-display:swap;src:url(../fonts/atk-800.woff2) format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible Mono";font-weight:500;font-display:swap;src:url(../fonts/atk-mono-500.woff2) format("woff2")}
 
 :root{
   --bg:#0D1117; --deep:#05070A; --card:#161B22; --raised:#21262D; --line:#2A313B;
@@ -15,7 +12,8 @@
   --fs-xl:clamp(1.25rem,4.6vw,1.5rem);
   --fs-2xl:clamp(1.75rem,6.6vw,2.5rem);
   --fs-3xl:clamp(2.25rem,9vw,4.25rem);
-  --display:Sora,system-ui,sans-serif;
+  --display:"Atkinson Hyperlegible Next",system-ui,sans-serif;
+  --mono:"Atkinson Hyperlegible Mono",ui-monospace,monospace;
   --ease:cubic-bezier(.2,.8,.2,1);
   --pad:clamp(20px,5vw,40px);
   --max:1120px;
@@ -23,7 +21,7 @@
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;scroll-padding-top:84px;overflow-x:clip;overscroll-behavior-y:none}
-body{margin:0;background:var(--bg);color:var(--body);font:400 var(--fs-base)/1.6 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--body);font:400 var(--fs-base)/1.6 "Atkinson Hyperlegible Next",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
 svg{display:block;max-width:100%}
 a,button{touch-action:manipulation}
 a{color:inherit}
@@ -36,24 +34,24 @@ p{margin:0}
 .wrap{width:min(100% - 2*var(--pad),var(--max));margin-inline:auto}
 
 h1,h2,h3{font-family:var(--display);color:var(--text);margin:0}
-h1{font-weight:800;line-height:1;letter-spacing:-.055em;text-wrap:balance}
-h2{font-weight:600;font-size:var(--fs-3xl);line-height:1.04;letter-spacing:-.04em;text-wrap:balance}
+h1{font-weight:800;line-height:1;letter-spacing:-.028em;text-wrap:balance}
+h2{font-weight:600;font-size:var(--fs-3xl);line-height:1.04;letter-spacing:-.02em;text-wrap:balance}
 h1,h2,h3,.lugares li{overflow-wrap:anywhere}
-h2 span,h1 span{color:var(--ok)}
-/* marca: Blind en blanco, Route en celeste */
+h1 span{color:var(--ok)}
+h2 span{color:inherit}
+
 .marca-r,h1 .marca-r,.brand .marca-r{color:var(--celeste)}
 .eyebrow.marca{color:var(--text)}
-/* logo de /contacto/: vuelve a la página principal */
+
 .brand.marca-c{margin-bottom:var(--s3);margin-left:calc(var(--s2) * -1);padding:0 var(--s2);border-radius:12px;font-size:var(--fs-xl)}
 .brand.marca-c .pin{color:var(--accent)}
-h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em}
-.eyebrow{margin-bottom:var(--s4);font-size:var(--fs-xs);font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
+h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.015em}
+.eyebrow{margin-bottom:var(--s4);font-size:var(--fs-xs);font-family:var(--mono);font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
 .lead{font-size:var(--fs-lg);color:var(--body);max-width:46ch}
 
-/* ---------- botones: reposo · hover · foco · presionado ---------- */
 .btn,.pill{display:inline-flex;align-items:center;justify-content:center;gap:var(--s3);text-decoration:none;cursor:pointer;
   transition:transform 120ms ease-out,background-color 150ms ease-out,border-color 150ms ease-out}
-.btn{min-height:56px;padding:0 28px;border-radius:16px;font:600 var(--fs-base) "IBM Plex Sans",system-ui,sans-serif;border:1px solid transparent}
+.btn{min-height:56px;padding:0 28px;border-radius:16px;font:600 var(--fs-base) "Atkinson Hyperlegible Next",system-ui,sans-serif;border:1px solid transparent}
 .btn-primary{background:var(--accent);color:var(--bg)}
 .btn-ghost{background:transparent;color:var(--text);border-color:var(--line)}
 .btn-lg{min-height:64px;padding:0 44px;font-size:var(--fs-lg)}
@@ -65,12 +63,11 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
   .btn-ghost:hover,.pill:hover{border-color:var(--accent);background:var(--card)}
 }
 
-/* ---------- encabezado ---------- */
 .top{position:fixed;inset:0 0 auto 0;z-index:30;transition:background-color 250ms ease-out,border-color 250ms ease-out}
 .top.fijo{background:rgba(13,17,23,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .top .caja{width:min(100% - 2*var(--pad),var(--max));margin-inline:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;column-gap:var(--s3);min-height:68px;padding-top:env(safe-area-inset-top)}
 .avance{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--ok);transform-origin:left;transform:scaleX(var(--p,0));pointer-events:none}
-.brand{display:inline-flex;align-items:center;gap:var(--s2);min-height:48px;text-decoration:none;font:800 var(--fs-lg) var(--display);letter-spacing:-.045em;color:var(--text)}
+.brand{display:inline-flex;align-items:center;gap:var(--s2);min-height:48px;text-decoration:none;font:800 var(--fs-lg) var(--display);letter-spacing:-.022em;color:var(--text)}
 .brand .pin{color:var(--accent);font-size:24px;view-transition-name:marca}
 .brand:active{opacity:.8}
 .nav{display:none;gap:var(--s1);margin:0 var(--s4) 0 auto}
@@ -79,7 +76,6 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 @media (hover:hover) and (pointer:fine){.nav a:hover{color:var(--text)}}
 @media (min-width:900px){.nav{display:flex}}
 
-/* ---------- inicio: el campo de ondas ---------- */
 .hero{position:relative;min-height:max(100svh,680px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;isolation:isolate;
   padding:96px var(--pad) calc(var(--s7) + env(safe-area-inset-bottom))}
 .campo-wrap{position:absolute;inset:0;z-index:-1;pointer-events:none}
@@ -93,16 +89,15 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
   border-radius:14px;background:rgba(5,7,10,.78);border:1px solid rgba(0,217,126,.32);color:var(--ok);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 .subtitulo .ico{width:20px;height:20px;stroke-width:1.8}
 .frases{display:grid}
-.frases b{grid-area:1/1;font:600 var(--fs-base) var(--display);letter-spacing:-.02em;opacity:0}
+.frases b{grid-area:1/1;font:600 var(--fs-base) var(--display);letter-spacing:-.01em;opacity:0}
 .frases b:first-child{opacity:1}
 .hero-txt{position:relative;max-width:640px}
-.hero h1{font-size:min(15.2vw,8rem);letter-spacing:-.06em;overflow-wrap:normal;white-space:nowrap}
-.eslogan{margin-top:var(--s4);font:600 clamp(1.5rem,6.4vw,2.5rem)/1.1 var(--display);letter-spacing:-.04em;color:var(--text)}
+.hero h1{font-size:min(15.2vw,8rem);letter-spacing:-.03em;overflow-wrap:normal;white-space:nowrap}
+.eslogan{margin-top:var(--s4);font:600 clamp(1.5rem,6.4vw,2.5rem)/1.1 var(--display);letter-spacing:-.02em;color:var(--text)}
 .eslogan{text-wrap:balance}
 .eslogan span{color:var(--ok)}
 .hero .lead{margin-top:var(--s4);max-width:34ch}
-/* celular: el campo de ondas es un bloque arriba y el texto va debajo, en el flujo normal.
-   Antes iba posicionado al 33 % del alto del inicio y, en pantallas bajas, el texto se le montaba encima. */
+
 @media (max-width:899px){
   .hero{min-height:auto;justify-content:flex-start;padding-top:72px}
   .campo-wrap{position:relative;inset:auto;flex:none;height:clamp(230px,40svh,360px);margin:0 calc(var(--pad) * -1) var(--s4)}
@@ -124,19 +119,17 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 .hero-txt{width:min(100%,var(--max));margin-inline:auto}
 @media (min-width:900px){.hero-txt{margin-inline:max(0px,calc((100% - var(--max))/2))}}
 
-/* ---------- secciones ---------- */
 .sec{padding-block:var(--sec)}
-/* el título queda justo debajo del encabezado al llegar por un enlace (el relleno de arriba no cuenta) */
+
 .sec,.llegada{scroll-margin-top:calc(-1 * var(--sec) + 8px)}
 .sec h2{max-width:16ch}
 .sec .lead{margin-top:var(--s4)}
 
-/* el problema: cifras como lectura grande, sin cajas */
 .cifras{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s6);margin-top:var(--s7);align-items:start}
 .cifra{padding-top:var(--s5);border-top:1px solid var(--line);display:flex;flex-direction:column}
 .cifra .d{font-size:var(--fs-lg);color:var(--body);max-width:30ch}
-.num{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:.22em;margin:var(--s2) 0;font:800 clamp(1.75rem,11.5vw,5.25rem)/.95 var(--display);letter-spacing:-.06em;color:var(--text)}
-.num .casi{font-size:.38em;letter-spacing:-.02em}
+.num{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:.22em;margin:var(--s2) 0;font:800 clamp(1.75rem,11.5vw,5.25rem)/.95 var(--display);letter-spacing:-.03em;color:var(--text)}
+.num .casi{font-size:.38em;letter-spacing:-.01em}
 .num .nn{white-space:nowrap}
 .apoyo{margin-top:var(--s3);color:var(--body);font-weight:600}
 .fuente{margin-top:auto;padding-top:var(--s5);font-size:var(--fs-sm);line-height:1.5;color:var(--muted);max-width:48ch}
@@ -157,11 +150,10 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 .diag .punto-d{fill:var(--ok)}
 .diag .enlace{fill:none;stroke:var(--ok);stroke-width:1.6;opacity:.7}
 .diag .persona-d{fill:#fff}
-.diag .et{font:600 14px "IBM Plex Sans",sans-serif;fill:var(--muted)}
+.diag .et{font:600 14px "Atkinson Hyperlegible Next",sans-serif;fill:var(--muted)}
 .diag .et-b{fill:var(--ok)}
 @media (min-width:900px){.prob{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s7)}}
 
-/* cómo funciona: una escena que cambia con el scroll */
 .demo{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s4);margin-top:var(--s5)}
 .escena-wrap,.pasos{min-width:0}
 .escena-wrap{position:sticky;top:72px;z-index:5;background:var(--bg);padding-block:var(--s3) var(--s4)}
@@ -183,13 +175,13 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 .onda-voz{display:flex;gap:var(--s1);align-items:center;height:30px;flex:none}
 .onda-voz i{display:block;width:4px;height:9px;border-radius:2px;background:var(--ok)}
 .onda-voz i:nth-child(2){height:18px}.onda-voz i:nth-child(3){height:28px}.onda-voz i:nth-child(4){height:15px}.onda-voz i:nth-child(5){height:7px}
-.voz b{display:block;white-space:nowrap;font:600 var(--fs-lg)/1.1 var(--display);letter-spacing:-.03em;color:var(--ok)}
+.voz b{display:block;white-space:nowrap;font:600 var(--fs-lg)/1.1 var(--display);letter-spacing:-.015em;color:var(--ok)}
 .voz span{font-size:var(--fs-sm);color:var(--body)}
 .hablar{margin-left:auto;display:inline-flex;align-items:center;gap:var(--s2);min-height:48px;padding:0 var(--s3);border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--text);
-  font:600 var(--fs-sm) "IBM Plex Sans",sans-serif;cursor:pointer;transition:transform 120ms ease-out,border-color 150ms ease-out,color 150ms ease-out}
+  font:600 var(--fs-sm) "Atkinson Hyperlegible Next",sans-serif;cursor:pointer;transition:transform 120ms ease-out,border-color 150ms ease-out,color 150ms ease-out}
 .hablar .ico{width:18px;height:18px}
 .hablar:active{transform:scale(.97)}
-/* celular: la escena fija queda compacta para que el paso activo se lea debajo, nunca tapado */
+
 @media (max-width:899px){
   .escena-wrap{padding-block:var(--s2) var(--s3)}
   .escena-wrap::after{content:"";position:absolute;left:0;right:0;top:100%;height:28px;background:linear-gradient(var(--bg),rgba(13,17,23,0));pointer-events:none}
@@ -208,8 +200,8 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 .paso{min-height:44svh;display:flex;flex-direction:column;justify-content:center;gap:var(--s3);padding-block:var(--s5);transition:opacity .4s ease-out}
 .js .paso{opacity:.3}
 .js .paso.activo{opacity:1}
-.paso .n{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);font:600 var(--fs-sm) var(--display);color:var(--ok)}
-.paso h3{font-size:var(--fs-2xl);line-height:1.08;letter-spacing:-.04em}
+.paso .n{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);font:500 var(--fs-sm) var(--mono);color:var(--ok)}
+.paso h3{font-size:var(--fs-2xl);line-height:1.08;letter-spacing:-.02em}
 .paso p{color:var(--body);font-size:var(--fs-lg);max-width:34ch}
 @media (min-width:900px){
   .demo{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s8);align-items:start}
@@ -220,12 +212,11 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
   .paso{min-height:56svh}
 }
 
-/* quién lo instala */
 .figura{flex:none;width:64px;height:64px;display:grid;place-items:center;border-radius:20px;background:var(--raised);color:var(--accent)}
 .figura svg{width:38px;height:38px}
 .dos{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s3);margin-top:var(--s6)}
 .lado{display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--s4);align-items:center;padding:var(--s5);background:var(--card);border:1px solid var(--line);border-radius:24px;transition:border-color 150ms ease-out}
-.lado .quien{font:800 var(--fs-2xl)/1 var(--display);letter-spacing:-.045em;color:var(--text)}
+.lado .quien{font:800 var(--fs-2xl)/1 var(--display);letter-spacing:-.022em;color:var(--text)}
 .lado p:last-child{margin-top:var(--s2);color:var(--body)}
 .lado + .union + .lado .figura{color:var(--ok)}
 @media (hover:hover) and (pointer:fine){.lado:hover{border-color:var(--accent)}}
@@ -239,7 +230,6 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
   .js .union.in .hilo{stroke-dashoffset:0}
 }
 
-/* para quien administra un lugar */
 .vent{list-style:none;margin:var(--s6) 0 0;padding:0;display:grid;gap:var(--s3)}
 .vent li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--s4);align-items:center;padding:var(--s4) var(--s5);background:var(--card);border:1px solid var(--line);border-radius:24px;transition:border-color 150ms ease-out}
 .vent h3{font-size:var(--fs-xl)}
@@ -250,16 +240,14 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
   .vent li{grid-template-columns:minmax(0,1fr);align-items:start;gap:var(--s5);padding:var(--s6) var(--s5)}
 }
 
-/* dónde: lista grande con un punto que late en secuencia */
 .lugares{list-style:none;margin:var(--s6) 0 var(--s5);padding:0;border-top:1px solid var(--line)}
-.lugares li{position:relative;display:flex;align-items:center;gap:var(--s4);padding:var(--s4) 0;border-bottom:1px solid var(--line);font:600 clamp(1.75rem,7.4vw,3.5rem)/1.05 var(--display);letter-spacing:-.045em;color:var(--text);transition:color 200ms ease-out}
+.lugares li{position:relative;display:flex;align-items:center;gap:var(--s4);padding:var(--s4) 0;border-bottom:1px solid var(--line);font:600 clamp(1.75rem,7.4vw,3.5rem)/1.05 var(--display);letter-spacing:-.022em;color:var(--text);transition:color 200ms ease-out}
 .lugares li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--accent);flex:none;position:relative}
 .lugares li::after{content:"";position:absolute;left:0;top:50%;margin-top:-5px;width:10px;height:10px;border-radius:50%;border:2px solid var(--accent);opacity:0;pointer-events:none}
 .lugares .ico{margin-left:auto;width:clamp(28px,6vw,44px);height:clamp(28px,6vw,44px);color:var(--accent);stroke-width:1.4;transition:transform 200ms cubic-bezier(.23,1,.32,1),color 150ms ease-out}
 @media (hover:hover) and (pointer:fine){.lugares li:hover{color:var(--ok)}.lugares li:hover .ico{color:var(--ok);transform:translateX(-6px)}}
-.cierre-lugares{font:600 var(--fs-xl)/1.3 var(--display);letter-spacing:-.025em;color:var(--text);max-width:30ch}
+.cierre-lugares{font:600 var(--fs-xl)/1.3 var(--display);letter-spacing:-.013em;color:var(--text);max-width:30ch}
 
-/* quiénes somos */
 .somos h2{max-width:18ch}
 .tiempo{list-style:none;margin:var(--s6) 0 0;padding:0 0 0 var(--s6);position:relative;display:grid;gap:var(--s5)}
 .tiempo::before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:2px;border-radius:2px;background:linear-gradient(var(--accent),var(--ok))}
@@ -273,14 +261,13 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
   .tiempo::before{left:0;right:0;top:5px;bottom:auto;width:auto;height:2px;background:linear-gradient(90deg,var(--accent),var(--ok))}
   .nodo{left:0;top:-26px}
 }
-.somos .fuerte{margin-top:var(--s6);font:600 var(--fs-xl)/1.3 var(--display);letter-spacing:-.025em;color:var(--text);max-width:34ch}
+.somos .fuerte{margin-top:var(--s6);font:600 var(--fs-xl)/1.3 var(--display);letter-spacing:-.013em;color:var(--text);max-width:34ch}
 .ficha{margin:var(--s6) 0 0;border-top:1px solid var(--line)}
 .ficha div{display:grid;grid-template-columns:6rem minmax(0,1fr);gap:var(--s4);align-items:baseline;padding:var(--s3) 0;border-bottom:1px solid var(--line)}
-.ficha dt{font-size:var(--fs-xs);font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.ficha dd{margin:0;font:600 var(--fs-xl)/1.25 var(--display);letter-spacing:-.03em;color:var(--text);text-wrap:balance}
+.ficha dt{font-family:var(--mono);font-size:var(--fs-xs);font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.ficha dd{margin:0;font:600 var(--fs-xl)/1.25 var(--display);letter-spacing:-.015em;color:var(--text);text-wrap:balance}
 @media (min-width:700px){.ficha div{grid-template-columns:10rem minmax(0,1fr)}}
 
-/* cierre */
 .llegada{position:relative;isolation:isolate;overflow:hidden;background:var(--deep);padding-block:calc(var(--sec) + var(--s5))}
 .llegada .halo{position:absolute;z-index:-1;pointer-events:none;right:-20vw;top:50%;translate:0 -50%;width:min(110vw,760px);aspect-ratio:1;display:grid;place-items:center}
 .llegada .halo::before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle,rgba(59,130,246,.18),rgba(59,130,246,0) 62%)}
@@ -298,16 +285,9 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 .pie nav a{padding:0 var(--s3);font-weight:600}
 @media (hover:hover) and (pointer:fine){.pie a:hover{color:var(--text)}}
 
-
-/* ejemplo de funcionamiento en perspectiva */
 .rec3d{margin-top:var(--s5);display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5)}
 .rec3d>*{min-width:0}
-/* --k es la escala de la escena. El dibujo proyectado mide unos 584×434 a escala 1 y queda corrido
-   respecto del centro de la caja; translate lo recentra. La perspectiva también escala con --k:
-   así el dibujo proyectado crece de forma uniforme y el centrado vale para cualquier ancho. */
-/* La escena es decorativa: no recibe toques y se recorta a su caja. Sin esto, en celular el
-   navegador proyectaba la zona de toque de la marca de destino (3D) sobre los botones del inicio
-   y los dejaba sin funcionar después de hacer scroll. */
+
 .vista{--k:.5;--dx:-4px;--dy:-10px;position:relative;height:calc(var(--k) * 450px + 24px);overflow:hidden;pointer-events:none}
 .vista *{pointer-events:none}
 @media (max-width:359px){.vista{--k:.44}}
@@ -344,14 +324,14 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 .meta3::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:3px solid var(--ok);opacity:0}
 .cartel{position:absolute;width:0;height:0;transform-style:preserve-3d;transform:rotateZ(40deg) rotateX(-90deg);transform-origin:0 0}
 .cartel::before{content:"";position:absolute;left:-1px;bottom:0;width:2px;height:64px;background:var(--ok);transform-origin:bottom}
-.cartel span{position:absolute;left:0;bottom:64px;translate:-50% 0;white-space:nowrap;padding:6px 12px;border-radius:8px;background:rgba(5,7,10,.9);border:1px solid var(--ok);color:var(--ok);font:600 18px var(--display);letter-spacing:-.02em}
+.cartel span{position:absolute;left:0;bottom:64px;translate:-50% 0;white-space:nowrap;padding:6px 12px;border-radius:8px;background:rgba(5,7,10,.9);border:1px solid var(--ok);color:var(--ok);font:600 18px var(--display);letter-spacing:-.01em}
 .persona{position:absolute;left:0;top:0;width:0;height:0;transform-style:preserve-3d;transform:translate3d(284px,76px,0);will-change:transform}
 .persona::before{content:"";position:absolute;left:-13px;top:-7px;width:26px;height:14px;border-radius:50%;background:rgba(0,0,0,.6);filter:blur(3px);transform:translateZ(.5px)}
 .fig{position:absolute;left:-9px;bottom:0;width:18px;height:46px;transform-origin:50% 100%;transform:rotateZ(40deg) rotateX(-90deg);transform-style:preserve-3d}
 .fig::before{content:"";position:absolute;left:3px;top:0;width:12px;height:12px;border-radius:50%;background:#fff}
 .fig::after{content:"";position:absolute;left:1px;top:14px;width:16px;height:32px;border-radius:8px 8px 4px 4px;background:var(--accent);box-shadow:0 0 14px rgba(59,130,246,.6)}
 .globo{position:absolute;width:0;height:0;transform-style:preserve-3d;transform:rotateZ(40deg) rotateX(-90deg);transform-origin:0 0;opacity:0;pointer-events:none;transition:opacity .3s ease-out}
-.globo span{position:absolute;left:0;bottom:62px;translate:-50% 0;white-space:nowrap;padding:6px 12px;border-radius:16px;background:#fff;color:var(--bg);font:600 15px var(--display);letter-spacing:-.02em}
+.globo span{position:absolute;left:0;bottom:62px;translate:-50% 0;white-space:nowrap;padding:6px 12px;border-radius:16px;background:#fff;color:var(--bg);font:600 15px var(--display);letter-spacing:-.01em}
 .globo::before{content:"";position:absolute;left:-6px;bottom:56px;width:12px;height:12px;background:#fff;transform:rotate(45deg)}
 .rec3d[data-fase="1"] .globo{opacity:1}
 .loc3{position:absolute;inset:0;width:100%;height:100%;overflow:visible;transform:translateZ(1.5px);pointer-events:none;opacity:0;transition:opacity .3s ease-out}
@@ -363,17 +343,17 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 .rec3d.reinicia :is(.persona,.meta3,.ruta3,.cartel){opacity:0;transition:opacity .6s ease-out}
 .lateral{display:grid;gap:var(--s3);align-content:start}
 .estado{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s3);min-height:72px;padding:var(--s3) var(--s4);border-radius:18px;background:var(--card);border:1px solid var(--line)}
-.estado b{display:block;font:600 var(--fs-xl)/1.1 var(--display);letter-spacing:-.03em;color:var(--ok)}
+.estado b{display:block;font:600 var(--fs-xl)/1.1 var(--display);letter-spacing:-.015em;color:var(--ok)}
 .estado span{display:block;margin-top:2px;font-size:var(--fs-sm);color:var(--body)}
 .estado span:empty{display:none}
 .fases{list-style:none;margin:0;padding:0;display:grid;gap:var(--s1)}
 .fase{display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--s3);align-items:start;padding:var(--s3) var(--s4);border-radius:16px;border:1px solid transparent;transition:opacity .3s ease-out,border-color .3s ease-out,background-color .3s ease-out}
-.fase .n{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);font:600 var(--fs-xs) var(--display);color:var(--ok)}
-.fase h3{font-size:var(--fs-base);line-height:1.2;letter-spacing:-.02em}
+.fase .n{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);font:500 var(--fs-xs) var(--mono);color:var(--ok)}
+.fase h3{font-size:var(--fs-base);line-height:1.2;letter-spacing:-.01em}
 .fase p{margin-top:2px;color:var(--body);font-size:var(--fs-sm)}
 .rec3d.vivo .fase{opacity:.4}
 .rec3d.vivo .fase.activa{opacity:1;background:var(--card);border-color:var(--line)}
-.pausa{display:none;align-items:center;gap:var(--s2);min-height:48px;padding:0 var(--s4);border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--text);font:600 var(--fs-sm) "IBM Plex Sans",sans-serif;cursor:pointer;
+.pausa{display:none;align-items:center;gap:var(--s2);min-height:48px;padding:0 var(--s4);border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--text);font:600 var(--fs-sm) "Atkinson Hyperlegible Next",sans-serif;cursor:pointer;
   transition:transform 120ms ease-out,border-color 150ms ease-out}
 .pausa:active{transform:scale(.97)}
 @media (hover:hover) and (pointer:fine){.pausa:hover{border-color:var(--accent)}}
@@ -381,11 +361,10 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 .pausa[aria-pressed="true"] .ico-pausa{width:0;height:0;border:0;border-left:12px solid currentColor;border-top:7px solid transparent;border-bottom:7px solid transparent}
 @media (min-width:900px){.rec3d{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:center;gap:var(--s7);margin-top:var(--s5)}}
 
-/* preguntas */
 .faq{margin-top:var(--s6);border-top:1px solid var(--line)}
 .faq details{border-bottom:1px solid var(--line)}
 .faq summary{overflow-wrap:anywhere;display:flex;align-items:center;justify-content:space-between;gap:var(--s4);min-height:72px;padding:var(--s4) 0;list-style:none;cursor:pointer;
-  font:600 var(--fs-xl)/1.2 var(--display);letter-spacing:-.03em;color:var(--text);transition:color 150ms ease-out}
+  font:600 var(--fs-xl)/1.2 var(--display);letter-spacing:-.015em;color:var(--text);transition:color 150ms ease-out}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"";flex:none;width:12px;height:12px;margin-right:4px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(45deg) translateY(-3px);transition:transform 200ms cubic-bezier(.23,1,.32,1)}
 .faq details[open] summary::after{transform:rotate(-135deg) translateY(-3px)}
@@ -393,7 +372,6 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 @media (hover:hover) and (pointer:fine){.faq summary:hover{color:var(--ok)}}
 .faq details p{padding:0 0 var(--s5);color:var(--body);font-size:var(--fs-lg);max-width:52ch}
 
-/* ---------- preferencias de accesibilidad visual ---------- */
 @media (prefers-reduced-transparency:reduce){
   .top.fijo{background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none}
   .subtitulo{background:var(--deep);-webkit-backdrop-filter:none;backdrop-filter:none}
@@ -403,10 +381,8 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
   .lead,p{color:#fff}
 }
 
-/* ---------- transición entre páginas ---------- */
 @view-transition{navigation:auto}
 
-/* ---------- /contacto/ ---------- */
 .contacto{min-height:100svh;display:flex;flex-direction:column;position:relative;isolation:isolate;width:min(100%,560px);margin-inline:auto;
   padding:max(var(--s6),env(safe-area-inset-top)) var(--pad) max(var(--s6),env(safe-area-inset-bottom))}
 .contacto::before{content:"";position:absolute;z-index:-1;left:50%;top:0;translate:-50% 0;width:140vw;max-width:900px;aspect-ratio:1;pointer-events:none;
@@ -425,7 +401,7 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
   transition:transform 120ms ease-out,border-color 150ms ease-out}
 .medio:active{transform:scale(.98)}
 .medio .ico{width:40px;height:40px;padding:9px;border-radius:50%;background:var(--raised);color:var(--accent);stroke-width:1.7}
-.medio small{display:block;font-size:var(--fs-xs);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.medio small{display:block;font-family:var(--mono);font-size:var(--fs-xs);font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .medio .v{display:block;font-weight:600;font-size:var(--fs-base);overflow-wrap:anywhere}
 @media (hover:hover) and (pointer:fine){.medio:hover{border-color:var(--accent)}}
 .guardar{margin-top:var(--s3)}
@@ -433,9 +409,9 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 .sin-datos{margin-top:var(--s6);padding:var(--s5);background:var(--card);border:1px solid var(--line);border-radius:20px;color:var(--body)}
 .canales:has(.medios li:not([hidden])) .sin-datos{display:none}
 .contacto .equipo-c{margin-top:var(--s6);padding-top:var(--s5);border-top:1px solid var(--line)}
-.equipo-c .nombres{font:600 var(--fs-xl)/1.3 var(--display);letter-spacing:-.03em;color:var(--text);text-wrap:balance}
+.equipo-c .nombres{font:600 var(--fs-xl)/1.3 var(--display);letter-spacing:-.015em;color:var(--text);text-wrap:balance}
 .equipo-c .escuela{margin-top:var(--s1);color:var(--muted)}
-/* formulario de consultas */
+
 .consulta{margin-top:var(--s7);padding-top:var(--s6);border-top:1px solid var(--line)}
 .consulta[hidden]{display:none}
 .consulta h2{font-size:var(--fs-2xl)}
@@ -445,7 +421,7 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 .fila label{font-weight:600;color:var(--text)}
 .fila .opc{font-weight:400;color:var(--muted)}
 .fila input,.fila textarea{width:100%;min-height:52px;padding:var(--s3) var(--s4);border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--text);
-  font:400 16px/1.5 "IBM Plex Sans",system-ui,sans-serif;transition:border-color 150ms ease-out}
+  font:400 16px/1.5 "Atkinson Hyperlegible Next",system-ui,sans-serif;transition:border-color 150ms ease-out}
 .fila textarea{min-height:140px;resize:vertical}
 .fila input:focus-visible,.fila textarea:focus-visible{outline:3px solid #fff;outline-offset:2px;border-color:var(--accent)}
 @media (hover:hover) and (pointer:fine){.fila input:hover,.fila textarea:hover{border-color:#3a4350}}
@@ -459,7 +435,6 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
 .contacto .conocer{margin-top:auto;padding-top:var(--s6)}
 .conocer .btn{width:100%}
 
-/* ---------- movimiento: solo si el sistema no pide reducirlo ---------- */
 @media (prefers-reduced-motion:no-preference){
   html{scroll-behavior:smooth}
   .rise{animation:rise .8s var(--ease) backwards;animation-delay:calc(var(--i,0) * 90ms)}
@@ -467,11 +442,10 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
   .js .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:calc(var(--i,0) * 70ms)}
   .js .reveal.in{opacity:1;transform:none}
 
-  /* ondas a velocidad constante: tardan 4,8 s en llegar al borde, una nueva cada 1,6 s */
   .reposo{display:none}
   .onda{animation:onda 4.8s linear var(--d) infinite;transform-box:fill-box;transform-origin:center}
   @keyframes onda{0%{transform:scale(.04);opacity:.9}85%{opacity:.22}100%{transform:scale(1);opacity:0}}
-  /* cada beacon se enciende justo cuando la onda lo alcanza (--t calculado según su distancia) */
+
   .faro{animation:faro 1.6s ease-out var(--t) infinite}
   @keyframes faro{0%,34%,100%{fill:#3B82F6;opacity:.5;transform:scale(1)}7%{fill:#00D97E;opacity:1;transform:scale(2.4)}}
   .yo-halo{animation:latido 1.6s ease-out infinite}
@@ -480,18 +454,16 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
   .frases b:nth-child(2){animation-delay:3s}.frases b:nth-child(3){animation-delay:6s}
   @keyframes frase{0%{opacity:0;transform:translateY(6px)}4%,30%{opacity:1;transform:none}34%,100%{opacity:0}}
 
-
-  /* ejemplo en perspectiva: una pasada de 12 s con pausa al girar */
   .pausa{display:inline-flex}
   .faro3::before{animation:eco 3.2s cubic-bezier(.2,.6,.2,1) var(--r) infinite}
   .faro3::after{animation:eco 3.2s cubic-bezier(.2,.6,.2,1) calc(var(--r) + 1.6s) infinite}
   @keyframes eco{0%{transform:scale(.3);opacity:.7}100%{transform:scale(1.5);opacity:0}}
-  /* camina: leve rebote y balanceo, al ritmo de un paso (0.48 s). Solo mientras avanza. */
+
   .rec3d.camina .fig{animation:paso .48s ease-in-out infinite}
   @keyframes paso{
     0%,100%{transform:rotateZ(40deg) rotateX(-90deg) translateY(0) rotateZ(-3deg)}
     50%{transform:rotateZ(40deg) rotateX(-90deg) translateY(-3px) rotateZ(3deg)}}
-  /* la escena no gasta nada cuando no se ve */
+
   .rec3d:not(.en-vista) .faro3::before,.rec3d:not(.en-vista) .faro3::after,.rec3d:not(.en-vista) .meta3::after,.rec3d:not(.en-vista) .fig{animation-play-state:paused}
   .meta3::after{animation:meta 2s cubic-bezier(.2,.6,.2,1) infinite}
   @keyframes meta{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.4);opacity:0}}
@@ -499,7 +471,6 @@ h3{font-weight:600;font-size:var(--fs-xl);line-height:1.15;letter-spacing:-.03em
   .rec3d.vivo .estado .onda-voz i:nth-child(2){animation-delay:.12s}.rec3d.vivo .estado .onda-voz i:nth-child(3){animation-delay:.24s}.rec3d.vivo .estado .onda-voz i:nth-child(4){animation-delay:.36s}.rec3d.vivo .estado .onda-voz i:nth-child(5){animation-delay:.48s}
   .rec3d.pausada *,.rec3d.pausada *::before,.rec3d.pausada *::after{animation-play-state:paused!important}
 
-  /* señal GPS que choca contra el techo: flujo a velocidad constante */
   .diag .rayos path{animation:flujo 1.2s linear infinite}
   @keyframes flujo{to{stroke-dashoffset:-12}}
   .diag .anillo-d{animation:bping 3.2s cubic-bezier(.2,.6,.2,1) infinite}

@@ -12,10 +12,9 @@
 <meta property="og:site_name" content="BlindRoute">
 <meta property="og:title" content="Contacto · BlindRoute">
 <meta property="og:description" content="Navegación por voz dentro de edificios. Consultas y datos de contacto del equipo.">
-<!-- PENDIENTE (dominio): og:url, og:image (URL absoluta) y <link rel="canonical">. Ver CLAUDE.md. -->
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
-<link rel="stylesheet" href="../assets/css/site.css?v=22">
+<link rel="stylesheet" href="../assets/css/site.css?v=24">
 </head>
 <body>
 
@@ -41,31 +40,7 @@
   <section class="canales" aria-labelledby="h-canales">
     <h2 id="h-canales" class="vh">Medios de contacto</h2>
 
-    <!--
-      ============================================================
-      DATOS DE CONTACTO · único lugar donde se cargan
-      Para publicar un medio:
-        1. Reemplazá href y el texto de <span class="v"> (donde dice COMPLETAR).
-        2. Borrá el atributo hidden de ese <li>.
-      Mientras un <li> tenga hidden, no se muestra ni se enlaza.
-      Para sumar otra red: copiá un <li>, cambiá el nombre y el ícono.
-      El botón "Guardar contacto" está más abajo (necesita blindroute.vcf).
-      Paso a paso completo en CLAUDE.md, sección "Pendientes".
-      ============================================================
-    -->
     <ul class="medios">
-      <li data-medio="email">
-        <a class="medio" href="mailto:blindrouteitsv@gmail.com">
-          <svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>
-          <span><small>Email</small><span class="v">blindrouteitsv@gmail.com</span></span>
-        </a>
-      </li>
-      <li hidden data-medio="whatsapp">
-        <a class="medio" href="https://wa.me/COMPLETAR">
-          <svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg>
-          <span><small>WhatsApp</small><span class="v">COMPLETAR</span></span>
-        </a>
-      </li>
       <li data-medio="instagram">
         <a class="medio" href="https://www.instagram.com/blindroute_">
           <svg class="ico" aria-hidden="true"><use href="#i-instagram"/></svg>
@@ -76,7 +51,6 @@
 
     <p class="sin-datos">El WhatsApp va a estar disponible pronto.</p>
 
-    <!-- Guardar contacto: requiere el archivo contacto/blindroute.vcf. Borrá hidden cuando exista. -->
     <div class="guardar">
       <a class="btn btn-primary" href="blindroute.vcf" download>
         <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>Guardar contacto
@@ -84,7 +58,6 @@
     </div>
   </section>
 
-  <!-- Consultas: se envían al mail del equipo con api/contacto.js (Resend). Ver CLAUDE.md, "Formulario de consultas". -->
   <section class="consulta" aria-labelledby="h-consulta">
     <h2 id="h-consulta">Consultas</h2>
     <p class="consulta-intro">Las preguntas llegan directo al equipo de BlindRoute. La respuesta se envía al email indicado.</p>
@@ -112,7 +85,6 @@
   </section>
 
   <section class="equipo-c" aria-label="Equipo">
-    <!-- PENDIENTE: nombres completos y roles. Por ahora solo apellidos. -->
     <p class="nombres">Giraudo · Apra · Cantarelli · Moesch</p>
     <p class="escuela">ITS Villada · 7.º Electrónica</p>
   </section>
@@ -125,6 +97,6 @@
 
 </main>
 
-<script src="../assets/js/contacto.js?v=1" defer></script>
+<script src="../assets/js/contacto.js?v=2" defer></script>
 </body>
 </html>
